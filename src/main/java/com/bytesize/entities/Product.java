@@ -1,19 +1,21 @@
 package com.bytesize.entities;
-
 import java.util.Objects;
 
 public class Product {
-    private int productId, seller_id, inventory;
-    private String title, description ;
+    private int productId;
+    private String title;
+    private String description;
     private float price;
+    private int inventory;
+    private int sellerId;
 
-    public Product(int productId, String title, float price, int inventory, String description, int seller_id) {
+    public Product(int productId, String title, String description, float price, int inventory, int sellerId) {
         this.productId = productId;
         this.title = title;
+        this.description = description;
         this.price = price;
         this.inventory = inventory;
-        this.description = description;
-        this.seller_id = seller_id;
+        this.sellerId = sellerId;
     }
 
     public int getProductId() {
@@ -29,7 +31,15 @@ public class Product {
     }
 
     public void setTitle(String title) {
-       this.title = title;
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public float getPrice() {
@@ -48,45 +58,36 @@ public class Product {
         this.inventory = inventory;
     }
 
-    public String getDescription() {
-        return description;
+    public int getSellerId() {
+        return sellerId;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSellerId(int sellerId) {
+        this.sellerId = sellerId;
     }
-
-    public int getSeller_id() {
-        return seller_id;
-    }
-
-    public void setSeller_id(int seller_id) {
-        seller_id = seller_id;
-    }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && seller_id == product.seller_id && Objects.equals(title, product.title) && Objects.equals(description, product.description);
+        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && sellerId == product.sellerId && title.equals(product.title) && description.equals(product.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, title, price, inventory, description, seller_id);
+        return Objects.hash(productId, title, description, price, inventory, sellerId);
     }
 
     @Override
     public String toString() {
         return "Product{" +
                 "productId=" + productId +
-                ", Title='" + title + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
                 ", price=" + price +
                 ", inventory=" + inventory +
-                ", description='" + description + '\'' +
-                ", Seller_id=" + seller_id +
+                ", sellerId=" + sellerId +
                 '}';
     }
 }

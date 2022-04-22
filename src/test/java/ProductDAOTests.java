@@ -7,8 +7,8 @@ public class ProductDAOTests {
     ProductDAOImp PDI = new ProductDAOImp();
 
     @Test
-    public void updateProject(){
-        Product product = new Product(-1,"golden candy",1000,2, "tastes bad", -2);
+    public void updateProduct(){
+        Product product = new Product(2,"golden candy","tastes bad",2,999 ,1);
         int result = PDI.updateProductInfo(product);
         Assert.assertEquals(result, 1);
     }

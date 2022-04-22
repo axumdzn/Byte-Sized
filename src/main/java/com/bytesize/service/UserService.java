@@ -1,6 +1,8 @@
 package com.bytesize.service;
 
-public interface UserService {
+import com.bytesize.entities.User;
 
+public interface UserService {
+    User login(String userName, String passWord);
 
 }

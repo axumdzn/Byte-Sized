@@ -1,19 +1,18 @@
 package com.bytesize.entities;
-
 import java.sql.Date;
 import java.util.Objects;
 
 public class Message {
-    private int messageId, userId, userIdTo;
-    private String message, userNameFrom;
-    private Date date;
+    private int messageId, buyerId, sellerId, senderId;
+    private String message;
+    private Date dateCreated;
 
-    public Message(int messageId, int userId, int userIdTo, String message, String userNameFrom) {
+    public Message(int messageId, int buyerId, int sellerId, int senderId, String message) {
         this.messageId = messageId;
-        this.userId = userId;
-        this.userIdTo = userIdTo;
+        this.buyerId = buyerId;
+        this.sellerId = sellerId;
+        this.senderId = senderId;
         this.message = message;
-        this.userNameFrom = userNameFrom;
     }
 
     public int getMessageId() {
@@ -24,20 +23,28 @@ public class Message {
         this.messageId = messageId;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getBuyerId() {
+        return buyerId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setBuyerId(int buyerId) {
+        this.buyerId = buyerId;
     }
 
-    public int getUserIdTo() {
-        return userIdTo;
+    public int getSellerId() {
+        return sellerId;
     }
 
-    public void setUserIdTo(int userIdTo) {
-        this.userIdTo = userIdTo;
+    public void setSellerId(int sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    public int getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(int senderId) {
+        this.senderId = senderId;
     }
 
     public String getMessage() {
@@ -48,20 +55,12 @@ public class Message {
         this.message = message;
     }
 
-    public String getUserNameFrom() {
-        return userNameFrom;
+    public Date getDateCreated() {
+        return dateCreated;
     }
 
-    public void setUserNameFrom(String userNameFrom) {
-        this.userNameFrom = userNameFrom;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     @Override
@@ -69,23 +68,23 @@ public class Message {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message1 = (Message) o;
-        return messageId == message1.messageId && userId == message1.userId && userIdTo == message1.userIdTo && message.equals(message1.message) && userNameFrom.equals(message1.userNameFrom) && date.equals(message1.date);
+        return messageId == message1.messageId && buyerId == message1.buyerId && sellerId == message1.sellerId && senderId == message1.senderId && message.equals(message1.message) && dateCreated.equals(message1.dateCreated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(messageId, userId, userIdTo, message, userNameFrom, date);
+        return Objects.hash(messageId, buyerId, sellerId, senderId, message, dateCreated);
     }
 
     @Override
     public String toString() {
         return "Message{" +
                 "messageId=" + messageId +
-                ", userId=" + userId +
-                ", userIdTo=" + userIdTo +
+                ", buyerId=" + buyerId +
+                ", sellerId=" + sellerId +
+                ", senderId=" + senderId +
                 ", message='" + message + '\'' +
-                ", userNameFrom='" + userNameFrom + '\'' +
-                ", date=" + date +
+                ", dateCreated=" + dateCreated +
                 '}';
     }
 }

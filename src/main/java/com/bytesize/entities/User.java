@@ -9,14 +9,13 @@ public class User {
     private boolean isBuyer;
     private boolean isSeller;
 
-    public User(int userId, String userName, String passWord, boolean isBuyer, boolean isSeller){
+    public User(int userId, String userName, String passWord, boolean isBuyer, boolean isSeller) {
         this.userId = userId;
         this.userName = userName;
         this.passWord = passWord;
         this.isBuyer = isBuyer;
         this.isSeller = isSeller;
     }
-
 
     public int getUserId() {
         return userId;
@@ -63,7 +62,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return userId == user.userId && isBuyer == user.isBuyer && isSeller == user.isSeller && Objects.equals(userName, user.userName) && Objects.equals(passWord, user.passWord);
+        return userId == user.userId && isBuyer == user.isBuyer && isSeller == user.isSeller && userName.equals(user.userName) && passWord.equals(user.passWord);
     }
 
     @Override
@@ -81,12 +80,4 @@ public class User {
                 ", isSeller=" + isSeller +
                 '}';
     }
-//    public static void main(String[] args){
-//        User user = new User(1, "assda", "passWord", true, false);
-//        user.setUserId(12);
-//        user.setUserName("gagag");
-//        user.setPassWord("password");
-//        System.out.println(user);
-//    }
-
 }
