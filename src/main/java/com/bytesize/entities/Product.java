@@ -1,4 +1,6 @@
 package com.bytesize.entities;
+
+import java.util.List;
 import java.util.Objects;
 
 public class Product {
@@ -9,8 +11,10 @@ public class Product {
     private int inventory;
     private int sellerId;
 
-    public Product(int productId, String title, String description, float price, int inventory, int sellerId) {
-        this.productId = productId;
+    public Product(){}
+
+    public Product(int productId, String title, String description, float price, int inventory,  int sellerId){
+        this.productId=productId;
         this.title = title;
         this.description = description;
         this.price = price;
@@ -76,7 +80,7 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, title, description, price, inventory, sellerId);
+        return Objects.hash(productId, title, description, price, inventory, sizes, sellerId);
     }
 
     @Override
@@ -87,7 +91,9 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", inventory=" + inventory +
+                ", sizes=" + sizes +
                 ", sellerId=" + sellerId +
                 '}';
     }
 }
+
