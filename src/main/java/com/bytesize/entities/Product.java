@@ -1,6 +1,4 @@
 package com.bytesize.entities;
-
-import java.util.List;
 import java.util.Objects;
 
 public class Product {
@@ -9,18 +7,14 @@ public class Product {
     private String description;
     private float price;
     private int inventory;
-    private List<String> sizes;
     private int sellerId;
 
-    public Product(){}
-
-    public Product(int productId, String title, String description, float price, int inventory, List<String> sizes, int sellerId){
-        this.productId=productId;
+    public Product(int productId, String title, String description, float price, int inventory, int sellerId) {
+        this.productId = productId;
         this.title = title;
         this.description = description;
         this.price = price;
         this.inventory = inventory;
-        this.sizes = sizes;
         this.sellerId = sellerId;
     }
 
@@ -64,14 +58,6 @@ public class Product {
         this.inventory = inventory;
     }
 
-    public List<String> getSizes() {
-        return sizes;
-    }
-
-    public void setSizes(List<String> sizes) {
-        this.sizes = sizes;
-    }
-
     public int getSellerId() {
         return sellerId;
     }
@@ -85,12 +71,12 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && sellerId == product.sellerId && Objects.equals(title, product.title) && Objects.equals(description, product.description) && Objects.equals(sizes, product.sizes);
+        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && sellerId == product.sellerId && title.equals(product.title) && description.equals(product.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, title, description, price, inventory, sizes, sellerId);
+        return Objects.hash(productId, title, description, price, inventory, sellerId);
     }
 
     @Override
@@ -101,7 +87,6 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", inventory=" + inventory +
-                ", sizes=" + sizes +
                 ", sellerId=" + sellerId +
                 '}';
     }

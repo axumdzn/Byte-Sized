@@ -1,26 +1,18 @@
 package com.bytesize.entities;
-
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.Objects;
 
 public class Message {
-    private int messageId;
+    private int messageId, buyerId, sellerId, senderId;
     private String message;
-    private int buyerId;
-    private int sellerId;
-    private int senderId;
-//    needs to be put in an actual date, but I need to find the correct package
-    private LocalDate date;
+    private Date dateCreated;
 
-    public Message() {}
-
-    public Message(int messageId, String message, int buyerId, int sellerId, int senderId, LocalDate date) {
+    public Message(int messageId, int buyerId, int sellerId, int senderId, String message) {
         this.messageId = messageId;
-        this.message = message;
         this.buyerId = buyerId;
         this.sellerId = sellerId;
         this.senderId = senderId;
-        this.date = date;
+        this.message = message;
     }
 
     public int getMessageId() {
@@ -29,14 +21,6 @@ public class Message {
 
     public void setMessageId(int messageId) {
         this.messageId = messageId;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public int getBuyerId() {
@@ -63,12 +47,20 @@ public class Message {
         this.senderId = senderId;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getMessage() {
+        return message;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     @Override
@@ -76,23 +68,23 @@ public class Message {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message1 = (Message) o;
-        return messageId == message1.messageId && buyerId == message1.buyerId && sellerId == message1.sellerId && senderId == message1.senderId && Objects.equals(message, message1.message) && Objects.equals(date, message1.date);
+        return messageId == message1.messageId && buyerId == message1.buyerId && sellerId == message1.sellerId && senderId == message1.senderId && message.equals(message1.message) && dateCreated.equals(message1.dateCreated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(messageId, message, buyerId, sellerId, senderId, date);
+        return Objects.hash(messageId, buyerId, sellerId, senderId, message, dateCreated);
     }
 
     @Override
     public String toString() {
         return "Message{" +
                 "messageId=" + messageId +
-                ", message='" + message + '\'' +
                 ", buyerId=" + buyerId +
                 ", sellerId=" + sellerId +
                 ", senderId=" + senderId +
-                ", date=" + date +
+                ", message='" + message + '\'' +
+                ", dateCreated=" + dateCreated +
                 '}';
     }
 }
