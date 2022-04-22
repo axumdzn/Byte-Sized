@@ -14,14 +14,20 @@ public class Product {
 
     public Product(){}
 
-    public Product(int productId, String title, String description, float price, int inventory, List<String> sizes, int sellerId){
+    public Product(int productId, String title, String description, float price, int inventory, int sellerId){
         this.productId=productId;
         this.title = title;
         this.description = description;
         this.price = price;
         this.inventory = inventory;
-        this.sizes = sizes;
         this.sellerId = sellerId;
+    }
+
+    public Product(int productId, String title, String description, float price){
+        this.productId=productId;
+        this.title = title;
+        this.description = description;
+        this.price = price;
     }
 
     public int getProductId() {
