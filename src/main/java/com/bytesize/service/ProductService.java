@@ -1,10 +1,10 @@
 package com.bytesize.service;
 
 import com.bytesize.entities.Product;
-
 import java.util.List;
 
 public interface ProductService {
+    int updateProduct(Product product);
 
     // create
     Product serviceCreateProduct(Product Product);

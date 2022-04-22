@@ -1,14 +1,13 @@
 package com.bytesize.daos;
-
 import com.bytesize.entities.Product;
 import com.bytesize.utils.DatabaseConnection;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+public class ProductDAOImp implements ProductDAO {
 
-public class ProductDAOImp implements ProductDAO{
+
 
 
     @Override
@@ -114,6 +113,23 @@ public class ProductDAOImp implements ProductDAO{
             ps.setInt(1, id);
             return ps.executeUpdate();
         } catch (SQLException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+
+    @Override
+    public int updateProductInfo(Product product) {
+        try (Connection connection = DatabaseConnection.createConnection()) {
+            String sql = "update products set title = ?, price = ?, description = ? where productid = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, product.getTitle());
+            ps.setFloat(2, product.getPrice());
+            ps.setString(3, product.getDescription());
+            ps.setInt(4, product.getProductId());
+            return ps.executeUpdate();
+        } catch (Exception e) {
             e.printStackTrace();
             return 0;
         }
