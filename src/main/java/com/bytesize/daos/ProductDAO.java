@@ -3,10 +3,10 @@ import com.bytesize.entities.Product;
 
 import com.bytesize.entities.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface ProductDAO {
-    int updateProductInfo(Product product);
 
     String interfaceField = "this is my interface string";
 
@@ -16,7 +16,7 @@ public interface ProductDAO {
     // select Product/s
     Product selectProductById(int id);
 
-    List<Product> selectAllProducts();
+    ArrayList<Product> selectAllProducts();
 
     // update Product
     int updateProductById(Product Product);
