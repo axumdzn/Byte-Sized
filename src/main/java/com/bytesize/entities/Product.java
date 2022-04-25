@@ -80,8 +80,9 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, title, description, price, inventory, sizes, sellerId);
+        return Objects.hash(productId, title, description, price, inventory, sellerId);
     }
+
 
     @Override
     public String toString() {
@@ -91,7 +92,6 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", inventory=" + inventory +
-                ", sizes=" + sizes +
                 ", sellerId=" + sellerId +
                 '}';
     }

@@ -9,7 +9,7 @@ public class ProductDAOTests {
     @Test
     public void updateProduct(){
         Product product = new Product(2,"golden candy","tastes bad",2,999 ,1);
-        int result = PDI.updateProductInfo(product);
+        int result = PDI.updateProductById(product);
         Assert.assertEquals(result, 1);
     }
 

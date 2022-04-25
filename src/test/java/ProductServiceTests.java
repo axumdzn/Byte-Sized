@@ -9,6 +9,8 @@ import org.mockito.Mockito;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
 import java.util.List;
 public class ProductServiceTests {
     public ProductDAO PD;
@@ -23,14 +25,14 @@ public class ProductServiceTests {
     @Test
     public void updateProductSuccess() {
         testProduct = new Product(2, "golden candy", "tastes bad", 2, 999, 1);
-        Mockito.doReturn(1).when(PD).updateProductInfo(testProduct);
+        Mockito.doReturn(1).when(PD).updateProductById(testProduct);
         int result = PSI.updateProduct(testProduct);
         Assert.assertEquals(result, 1);
     }
     @Test(expectedExceptions = IdNotFound.class, expectedExceptionsMessageRegExp = "Id not found")
     public void updateProductNoUserNegative() {
         testProduct = new Product(2, "golden candy", "tastes bad", 2, 999, 1);
-        Mockito.doReturn(0).when(PD).updateProductInfo(testProduct);
+        Mockito.doReturn(0).when(PD).updateProductById(testProduct);
         PSI.updateProduct(testProduct);
     }
 
@@ -67,31 +69,25 @@ public class ProductServiceTests {
     }
     @Test
     public void serviceRemoveProductById() {
-        int result = productService.serviceRemoveProductById(-3);
+        int result = PSI.serviceRemoveProductById(-3);
         Assert.assertTrue(result == 0);
     }
     @Test
     public void serviceSelectAllProducts() {
-        List<Product> products = productService.serviceSelectAllProducts();
+        ArrayList<Product> products = PSI.serviceSelectAllProducts();
         Assert.assertTrue(products.size() >= 1);
     }
 
     @Test
-    public void serviceUpdateProductById() {
-        Product product = new Product(-2, "Fries", "This is fresh fries", 3.99f, 5, 1);
-        int result = productService.serviceUpdateProductById(product);
-        Assert.assertTrue(result == 0);
-    }
-    @Test
     public void serviceCreateProduct() {
-        Product newProduct = new Product(0, "food", "We see only fresh food", 5.49f, 5, 1);
-        Product resultingProduct = productService.serviceCreateProduct(newProduct);
+        Product newProduct = new Product(0, "food", "We see only fresh food", 100, 5, 1);
+        Product resultingProduct = PSI.serviceCreateProduct(newProduct);
         Assert.assertNotEquals(resultingProduct.getProductId(), 0);
     }
 
     @Test
     public void serviceSelectProductById() {
-        Product product = productService.serviceSelectProductById(2);
+        Product product = PSI.serviceSelectProductById(2);
         Assert.assertEquals(product.getProductId(), 2);
     }
 

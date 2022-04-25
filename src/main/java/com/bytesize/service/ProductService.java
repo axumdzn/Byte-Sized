@@ -15,8 +15,7 @@ public interface ProductService {
     List<Product> serviceSelectAllProducts();
 
     // update
-    int serviceUpdateProductById(Product Product);
-
+//    int serviceUpdateProductById(Product Product);
 
 
 

@@ -2,10 +2,16 @@ package com.bytesize.service;
 import com.bytesize.customExceptions.BadInput;
 import com.bytesize.customExceptions.IdNotFound;
 import com.bytesize.daos.ProductDAO;
+import com.bytesize.daos.ProductDAOImp;
 import com.bytesize.entities.Product;
+
+import java.util.ArrayList;
 import java.util.List;
+
 public class ProductServiceImp implements ProductService {
     public ProductDAO PD;
+    public ProductDAOImp productDAOImp;
+
 
     public ProductServiceImp(ProductDAO PD){
         this.PD = PD;
@@ -24,7 +30,7 @@ public class ProductServiceImp implements ProductService {
         else if(product.getInventory() >= 1000){
             throw new BadInput("Inventory should be less than 1000");
         }
-        int result =  PD.updateProductInfo(product);
+        int result =  PD.updateProductById(product);
 
         if(result == 0){
             throw new IdNotFound("Id not found");
@@ -33,22 +39,24 @@ public class ProductServiceImp implements ProductService {
     }
 
 
-
     @Override
     public Product serviceCreateProduct(Product product) {
-        String title = product.getTitle();
-        String description = product.getDescription();
-        if (product.getPrice() > 100000) { // should be less than 1000.
-            throw new BadInput("");
+
+        if(product.getTitle().length() > 150){
+            throw new BadInput("Title should be less than 150 characters");
         }
-        if (title.length() > 150) {
-            throw new BadInput("");
+        else if(product.getDescription().length() > 500){
+            throw new BadInput("Description should be less than 500 characters");
         }
-        if (description.length() > 500) {
-            throw new BadInput("");
+        else if(product.getPrice() >= 1000){
+            throw new BadInput("Price should be less than 1000");
+        }
+        else if(product.getInventory() >= 1000){
+            throw new BadInput("Inventory should be less than 1000");
         } else {
-            return productDAOImp.createProduct(product);
+            return PD.createProduct(product);
         }
+
     }
 
     @Override
@@ -62,27 +70,9 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public List<Product> serviceSelectAllProducts() {
-        return productDAOImp.selectAllProducts();
+    public ArrayList<Product> serviceSelectAllProducts() {
+        return PD.selectAllProducts();
     }
-
-    @Override
-    public int serviceUpdateProductById(Product product) {
-        String title = product.getTitle();
-        String description = product.getDescription();
-        if (product.getPrice() > 100000) {
-            throw new BadInput("");
-        }
-        if (title.length() > 150) {
-            throw new BadInput("");
-        }
-        if (description.length() > 500) {
-            throw new BadInput("");
-        }
-
-        return 0;
-    }
-
 
 
     @Override

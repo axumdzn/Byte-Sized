@@ -3,10 +3,13 @@ import com.bytesize.customExceptions.BadInput;
 import com.bytesize.customExceptions.IdNotFound;
 import com.bytesize.entities.Product;
 import com.bytesize.service.ProductService;
+import com.bytesize.service.ProductServiceImp;
 import com.google.gson.Gson;
 import io.javalin.http.Handler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.List;
 
 
 public class ProductController {
@@ -17,31 +20,24 @@ public class ProductController {
     public ProductController(ProductService productServiceInterface) {
         this.productServiceInterface = productServiceInterface;
     }
-
-    public Handler updateProduct = ctx -> {
-        try{
-            logger.info("starting process to login");
-            Gson gson = new Gson();
-            logger.info("getting http request body");
-            String body = ctx.body();
-            logger.info("creating Person object from http request body");
-            Product product = gson.fromJson(body, Product.class);
-            logger.info("attempting to send user info to database " + product.getProductId());
-            int result = productServiceInterface.updateProduct(product);
-            logger.info("successfully added person with info: " + result + " to database");
-            resultJson = gson.toJson(result);
-            logger.info(resultJson);
-            ctx.result(resultJson);
-            ctx.status(201);
-            logger.info("all done!");
-        }catch(BadInput e) {
-            ctx.result(e.getMessage());
-            ctx.status(405);
-        }catch(IdNotFound e){
-            ctx.result(e.getMessage());
-            ctx.status(405);
-        }
-    };
+//
+//    public Handler updateProduct = ctx -> {
+//        try{
+//            Gson gson = new Gson();
+//            String body = ctx.body();
+//            Product product = gson.fromJson(body, Product.class);
+//            int result = productServiceInterface.updateProduct(product);
+//            resultJson = gson.toJson(result);
+//            ctx.result(resultJson);
+//            ctx.status(201);
+//        }catch(BadInput e) {
+//            ctx.result(e.getMessage());
+//            ctx.status(405);
+//        }catch(IdNotFound e){
+//            ctx.result(e.getMessage());
+//            ctx.status(405);
+//        }
+//    };
 
 
 
@@ -53,7 +49,7 @@ public class ProductController {
             Gson gson = new Gson();
             String body = ctx.body();
             Product product = gson.fromJson(body, Product.class);
-            Product result = productService.serviceCreateProduct(product);
+            Product result =  productServiceInterface.serviceCreateProduct(product);
             String resultJson = gson.toJson(result);
             ctx.result(resultJson);
             ctx.status(405);
@@ -66,7 +62,7 @@ public class ProductController {
     public Handler selectProduct = ctx ->{
     try{
         int id = Integer.parseInt(ctx.pathParam("id"));
-        Product product = productService.serviceSelectProductById(id);
+        Product product = productServiceInterface.serviceSelectProductById(id);
         Gson gson = new Gson();
         String productJson = gson.toJson(product);
         ctx.result(productJson);
@@ -78,7 +74,7 @@ public class ProductController {
     };
 
     public Handler selectAllProduct = ctx -> {
-            List<Product> product = productService.serviceSelectAllProducts();
+            List<Product> product = productServiceInterface.serviceSelectAllProducts();
             Gson gson = new Gson();
             String productJson = gson.toJson(product);
             ctx.result(productJson);
@@ -91,7 +87,7 @@ public class ProductController {
             Gson gson = new Gson();
             String body = ctx.body();
             Product product = gson.fromJson(body, Product.class);
-            int result = productService.serviceUpdateProductById(product);
+            int result = productServiceInterface.updateProduct(product);
             String resultJson = gson.toJson(result);
             ctx.result(resultJson);
             ctx.status(405);
@@ -104,7 +100,7 @@ public class ProductController {
     public Handler removeProduct = ctx -> {
         try{
             int id = Integer.parseInt(ctx.pathParam("id"));
-            int product = productService.serviceRemoveProductById(id);
+            int product = productServiceInterface.serviceRemoveProductById(id);
             Gson gson = new Gson();
             String productJson = gson.toJson(product);
             ctx.result(productJson);
