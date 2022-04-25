@@ -174,7 +174,7 @@
         <hr> 
         <div style="vertical-align: top; text-align: right;" class="Header">
             <div class="checkout">
-                <button id="checkout" onclick="location.href='Byte_Sized_Cart.html'"><b>Click here to check out</b></button>
+                <button id="checkout" onclick="checkout()"><b>Click here to check out</b></button>
             </div>
         </div>
     </div>
@@ -187,6 +187,7 @@
 let btnAdd = document.querySelector('#add');
 let btnSubtract = document.querySelector('#subtract');
 let input = document.querySelector('input');
+const checkout = document.getElementById("checkout");
 
 btnAdd.addEventListener('click', ()=>{input.value=parseInt(input.value)+1});
 btnSubtract.addEventListener('click', ()=>{input.value=parseInt(input.value)-1});
@@ -206,6 +207,8 @@ function addProduct()
     window.location.href = "Byte_Sized_Cart.html";
 
 }
+
+
 
 
 

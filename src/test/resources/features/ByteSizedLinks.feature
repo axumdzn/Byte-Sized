@@ -1,4 +1,4 @@
-Feature: Buyers should  be able to cancel an item in their cart, see a seller's products, view their stats, and send a message to sellers
+Feature: Buyers should  be able to cancel an item in their cart, see the seller's products, view seller's stats, and send a message to sellers
   Scenario: As a buyer, I should  be able to cancel an item so that I won’t be charged for it
     Given I am on the checkout page
     When I click the remove button
@@ -8,9 +8,9 @@ Feature: Buyers should  be able to cancel an item in their cart, see a seller's 
     Given I am on the seller's page
     Then I should see the seller's products
 
-  Scenario: As a buyer, I should be able too see my stats or ratings so that I can see my data
-    Given I am on the buyer's page
-    Then I should see the stats on the page
+  Scenario: As a buyer, I should be able too see the seller's stats or ratings so that I can determine their credibility
+    Given I am on the seller's page
+    Then I should see the seller's rating
 
   Scenario: As a buyer, I should be able to message sellers so I can get more information on a product
     Given I am on the seller’s page

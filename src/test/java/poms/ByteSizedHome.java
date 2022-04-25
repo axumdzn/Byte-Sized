@@ -15,7 +15,10 @@ public class ByteSizedHome
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "")
+    @FindBy(id = "addProduct")
+    public WebElement addProduct;
+
+    @FindBy()
     public WebElement cancelItem;
 
     @FindBy

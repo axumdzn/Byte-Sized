@@ -37,7 +37,8 @@ public class ProductServiceImp implements ProductService
         if(product == null)
             {throw new IdNotFound("No products to show with this seller ID");}
         else
-            {return (List<Product>) product;}
+            {return product;}
+        //{return (List<Product>) product}
     }
 
 

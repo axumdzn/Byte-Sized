@@ -1,6 +1,7 @@
 import com.bytesize.daos.ProductDAO;
 import com.bytesize.daos.ProductDAOImp;
 import com.bytesize.entities.Product;
+import com.bytesize.exceptions.IdNotFound;
 import com.bytesize.service.ProductServiceImp;
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -28,17 +29,9 @@ public class ProductDAOTests
     @Test
     public void displayProductByProductIDSuccess()
     {
-        Product newProduct = productDAOImpObject.displayProductByProductID(3);
-        Assert.assertEquals(newProduct.getProductId(), 3); // works
+        Product newProduct = productDAOImpObject.displayProductByProductID(9);
+        Assert.assertEquals(newProduct.getProductId(), 9);
     }
-
-    //Mocked Positive test for viewing product -  **********HELP DOES NOT DISPLAY AS NEEDED**********
-//    @Test
-//    public void displayProductSuccessfully()
-//    {
-//        Assert.assertEquals(productDAOImp.displayProductByProductID(3),"Product{productId=3, title='food', description='very unfresh', price=999.99, inventory=0, sellerId=0}");
-//    }
-
 
     // POSITIVE test for viewing all products
     @Test
@@ -49,13 +42,16 @@ public class ProductDAOTests
     }
 
     // NEGATIVE test for viewing a product
-//    @Test
-//    public void displayProductByProductIDFailure()
-//    {
-//        Product newProduct = productDAOImpObject.displayProductByProductID(-10);
-//        Assert.assertEquals(newProduct, "ID not found");
-//
-//    }
+    @Test(expectedExceptions = IdNotFound.class, expectedExceptionsMessageRegExp = "ID not found")
+    public void throwIdNotFoundProductSuccessfully(){
+        productDAOImp.displayProductByProductID(100);
+    }
+
+    // NEGATIVE test for viewing all products
+    @Test(expectedExceptions = IdNotFound.class, expectedExceptionsMessageRegExp = "ID not found")
+    public void throwIdNotFoundProductsSuccessfully(){
+        productDAOImp.displayProductByProductID(100);
+    }
 
 
 

@@ -29,7 +29,9 @@ public class ProductDAOImp implements ProductDAO{
                     rs.getInt("productId"),
                     rs.getString("title"),
                     rs.getString("description"),
-                    rs.getFloat("price")
+                    rs.getFloat("price"),
+                    rs.getInt("inventory"),
+                    rs.getInt("sellerId")
             );
             return item;
         }
