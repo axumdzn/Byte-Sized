@@ -9,7 +9,6 @@ public class Product {
     private String description;
     private float price;
     private int inventory;
-    private List<String> sizes;
     private int sellerId;
 
     public Product(){}
@@ -70,14 +69,6 @@ public class Product {
         this.inventory = inventory;
     }
 
-    public List<String> getSizes() {
-        return sizes;
-    }
-
-    public void setSizes(List<String> sizes) {
-        this.sizes = sizes;
-    }
-
     public int getSellerId() {
         return sellerId;
     }
@@ -91,12 +82,12 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && sellerId == product.sellerId && Objects.equals(title, product.title) && Objects.equals(description, product.description) && Objects.equals(sizes, product.sizes);
+        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && sellerId == product.sellerId && Objects.equals(title, product.title) && Objects.equals(description, product.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, title, description, price, inventory, sizes, sellerId);
+        return Objects.hash(productId, title, description, price, inventory, sellerId);
     }
 
     @Override
@@ -107,7 +98,7 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", inventory=" + inventory +
-                ", sizes=" + sizes +
+//                ", sizes=" + sizes +
                 ", sellerId=" + sellerId +
                 '}';
     }

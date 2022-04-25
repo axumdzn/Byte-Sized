@@ -9,31 +9,33 @@ import java.util.List;
 public class ProductServiceImp implements ProductService
 {
 
-    public ProductDAO productDAO;
+    public ProductDAO productDAOInterface; // service layer uses this to implement dao interface methods
 
-    public ProductServiceImp(ProductDAO productDAO)
+    public ProductServiceImp(ProductDAO productDAOInterface)
     {
-        this.productDAO = productDAO;
+        this.productDAOInterface = productDAOInterface;
     }
-
-
 
     @Override
     public Product serviceDisplayProductByProductID(int productId)
     {
-        Product product = productDAO.displayProductByProductID(productId);
+        Product product = productDAOInterface.displayProductByProductID(productId);
         if(product == null)
-            {throw new IdNotFound("No products to show with this ID");}
+        {
+            throw new IdNotFound("No products to show with this product ID");
+        }
         else
-            {return product;}
+        {
+            return product;
+        }
     }
 
     @Override
     public List<Product> serviceDisplayAllProductsBySellerId(int sellerId)
     {
-        Product product = (Product) productDAO.displayAllProductsBySellerId(sellerId);
+        List<Product> product = productDAOInterface.displayAllProductsBySellerId(sellerId);
         if(product == null)
-            {throw new IdNotFound("No products to show with this ID");}
+            {throw new IdNotFound("No products to show with this seller ID");}
         else
             {return (List<Product>) product;}
     }

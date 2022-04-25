@@ -20,7 +20,7 @@ public class ProductDAOImp implements ProductDAO{
             ps.setInt(1, productId);
             ResultSet rs = ps.executeQuery();
             //rs.next();
-            if(rs.next() == false)
+            if(!rs.next())
             {
                 throw new IdNotFound("ID not found");
             }
@@ -49,14 +49,16 @@ public class ProductDAOImp implements ProductDAO{
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, sellerId);
             ResultSet rs = ps.executeQuery();
-            rs.next();
+            //rs.next();
             List<Product> products = new ArrayList<>();
             while(rs.next()){
                 Product product = new Product(
                         rs.getInt("productId"),
                         rs.getString("title"),
                         rs.getString("description"),
-                        rs.getFloat("price")
+                        rs.getFloat("price"),
+                        rs.getInt("inventory"),
+                        rs.getInt("sellerId")
                 );
                 products.add(product);
             }
