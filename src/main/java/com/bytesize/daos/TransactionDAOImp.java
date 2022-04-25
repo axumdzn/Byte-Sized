@@ -1,5 +1,3 @@
-package com.bytesize.daos;
-
 import com.bytesize.entities.Transaction;
 import com.bytesize.utils.DatabaseConnection;
 

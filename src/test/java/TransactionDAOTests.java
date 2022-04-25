@@ -3,8 +3,7 @@ import com.bytesize.entities.Transaction;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
-import java.sql.SQLDataException;
-import java.sql.SQLException;
+
 
 public class TransactionDAOTests {
 

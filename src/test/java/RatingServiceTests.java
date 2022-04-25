@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class RatingServiceTests {
     public void serviceCreateRatingSuccess(){
         Rating rating = new Rating(0,4,"was very nice",1,2);
         Rating result = ratingServiceImp.serviceCreateRating(rating);
-        Assert.assertEquals(rating.getRate(),4);
+        Assert.assertEquals(result.getRate(),4);
     }
     @Test(expectedExceptions = BadInput.class, expectedExceptionsMessageRegExp = "Rating must be between 1 and 5")
     public void serviceCreateRatingRateInvalid(){

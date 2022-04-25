@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
-import java.sql.SQLException;
+
 
 public class TransactionServiceTests {
     TransactionDAOImp transactionDAOImp;

@@ -1,4 +1,9 @@
 package com.bytesize.daos;
 
-public interface MessageDAO {
+import com.bytesize.entities.Message;
+
+public interface MessageDAO
+{
+    // sending a message to the seller
+    Message sendMessageDAO(Message message);
 }

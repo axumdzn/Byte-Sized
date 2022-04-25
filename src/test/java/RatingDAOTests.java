@@ -1,12 +1,9 @@
-import com.bytesize.customExceptions.BadInput;
 import com.bytesize.customExceptions.IdNotFound;
 import com.bytesize.daos.RatingDAOImp;
 import com.bytesize.entities.Rating;
-import org.postgresql.util.PSQLException;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class RatingDAOTests{
