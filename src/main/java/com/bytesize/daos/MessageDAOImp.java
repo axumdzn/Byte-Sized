@@ -26,4 +26,9 @@ public class MessageDAOImp implements MessageDAO {
             return null;
         }
     }
+    @Override
+    public String messageSeller(String message)
+    {
+        return null;
+    }
 }

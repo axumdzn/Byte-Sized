@@ -24,4 +24,12 @@ public interface ProductDAO {
 
     // delete Product
     int removeProductById(int id);
+
+    //displays one item by productid
+    Product displayProductByProductID(int productId);
+
+    //this is a linked list
+    //displays all items by sellerid: seller may have a list of items
+    List<Product> displayAllProductsBySellerId(int sellerId);
+
 }

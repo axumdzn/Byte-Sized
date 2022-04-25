@@ -90,6 +90,31 @@ public class ProductServiceTests {
         Product product = PSI.serviceSelectProductById(2);
         Assert.assertEquals(product.getProductId(), 2);
     }
+    // POSITIVE test for viewing all products
+    @Test
+    public void displayAllProductsBySellerIdSuccess()
+    {
+        List<Product> product = productService.serviceDisplayAllProductsBySellerId(1);
+        //ProductServiceImp productServiceImpObject = new ProductServiceImp(productDAOImp);
+        Assert.assertTrue(product.size() >= 1);
+    }
+
+    // NEGATIVE test for viewing a product
+    @Test
+    public void displayProductByProductIDFailure()
+    {
+        Product newProduct = productService.serviceDisplayProductByProductID(9);
+        Assert.assertEquals(newProduct.getProductId(), 9);
+    }
+
+    // NEGATIVE test for viewing all products
+    @Test
+    public void displayAllProductsBySellerIdFailure()
+    {
+        List<Product> product = productService.serviceDisplayAllProductsBySellerId(1);
+        //ProductServiceImp productServiceImpObject = new ProductServiceImp(productDAOImp);
+        Assert.assertTrue(product.size() >= 1);
+    }
 
 
 }

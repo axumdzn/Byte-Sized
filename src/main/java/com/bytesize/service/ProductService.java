@@ -22,5 +22,11 @@ public interface ProductService {
 
     // delete
     int serviceRemoveProductById(int id);
-}
 
+    Product serviceDisplayProductByProductID(int productId);
+
+
+    List<Product> serviceDisplayAllProductsBySellerId(int sellerId);
+
+
+}

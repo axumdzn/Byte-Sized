@@ -82,6 +82,30 @@ public class ProductServiceImp implements ProductService {
         }
         return 0;
     }
+    @Override
+    public Product serviceDisplayProductByProductID(int productId)
+    {
+        Product product = productDAOInterface.displayProductByProductID(productId);
+        if(product == null)
+        {
+            throw new com.bytesize.exceptions.IdNotFound("No products to show with this product ID");
+        }
+        else
+        {
+            return product;
+        }
+    }
+
+    @Override
+    public List<Product> serviceDisplayAllProductsBySellerId(int sellerId)
+    {
+        List<Product> product = productDAOInterface.displayAllProductsBySellerId(sellerId);
+        if(product == null)
+        {throw new com.bytesize.exceptions.IdNotFound("No products to show with this seller ID");}
+        else
+        {return product;}
+        //{return (List<Product>) product}
+    }
 
 
 }
