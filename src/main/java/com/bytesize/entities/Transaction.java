@@ -12,10 +12,9 @@ public class Transaction {
 
     public Transaction() {}
 
-    public Transaction(int transactionId, int amount, String size, String status, int productId, int buyerId) {
+    public Transaction(int transactionId, int amount, String status, int productId, int buyerId) {
         this.transactionId = transactionId;
         this.amount = amount;
-        this.size = size;
         this.status = status;
         this.productId = productId;
         this.buyerId = buyerId;
@@ -37,13 +36,6 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
 
     public String getStatus() {
         return status;
@@ -87,7 +79,6 @@ public class Transaction {
         return "Transaction{" +
                 "transactionId=" + transactionId +
                 ", amount=" + amount +
-                ", size='" + size + '\'' +
                 ", status='" + status + '\'' +
                 ", productId=" + productId +
                 ", buyerId=" + buyerId +

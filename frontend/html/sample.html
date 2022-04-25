@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body>
+
+    <button onclick="makeRatingModal()" id="openRate">Leave a Rate</button>
+
+    <div id="rate" class="modal">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h2>Leave a Rate</h2>
+            </div>
+            <div class="modal-body">
+                <p>Select a Rating</p>
+                <select name="rating" id="rating">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>-
+                </select>
+                <p>Leave a Comment</p>
+                <input type="text" name="comment" id="comment">
+            </div>
+            <div class="modal-footer">
+                <h3>Click to Submit</h3>
+                <button onclick="createRating()">Submit</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="../js/ratingfunctions.js"></script>
+</body>
+</html>

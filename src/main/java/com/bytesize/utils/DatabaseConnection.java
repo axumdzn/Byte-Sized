@@ -13,7 +13,7 @@ public class DatabaseConnection {
                     System.getenv("HOST"),
                     System.getenv("PORT"),
                     System.getenv("DB"),
-                    System.getenv("USERNAME"),
+                    System.getenv("USER"),
                     System.getenv("PASSWORD")
             ));
             return connection;
