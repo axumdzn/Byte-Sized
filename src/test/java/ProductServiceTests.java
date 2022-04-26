@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class ProductServiceTests {
     public ProductDAO PD;
     public ProductServiceImp PSI;
@@ -89,6 +90,31 @@ public class ProductServiceTests {
     public void serviceSelectProductById() {
         Product product = PSI.serviceSelectProductById(2);
         Assert.assertEquals(product.getProductId(), 2);
+    }
+    // POSITIVE test for viewing all products
+    @Test
+    public void displayAllProductsBySellerIdSuccess()
+    {
+        List<Product> product = PSI.serviceDisplayAllProductsBySellerId(1);
+        //ProductServiceImp productServiceImpObject = new ProductServiceImp(productDAOImp);
+        Assert.assertTrue(product.size() >= 1);
+    }
+
+    // NEGATIVE test for viewing a product
+    @Test
+    public void displayProductByProductIDFailure()
+    {
+        Product newProduct = PSI.serviceDisplayProductByProductID(9);
+        Assert.assertEquals(newProduct.getProductId(), 9);
+    }
+
+    // NEGATIVE test for viewing all products
+    @Test
+    public void displayAllProductsBySellerIdFailure()
+    {
+        List<Product> product = PSI.serviceDisplayAllProductsBySellerId(1);
+        //ProductServiceImp productServiceImpObject = new ProductServiceImp(productDAOImp);
+        Assert.assertTrue(product.size() >= 1);
     }
 
 

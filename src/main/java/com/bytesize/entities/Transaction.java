@@ -2,7 +2,9 @@ package com.bytesize.entities;
 
 import java.util.Objects;
 
-public class Transaction {
+// This is the Java Bean Class
+public class Transaction extends Product
+{
     private int transactionId;
     private int amount;
     private String size;
@@ -12,10 +14,9 @@ public class Transaction {
 
     public Transaction() {}
 
-    public Transaction(int transactionId, int amount, String size, String status, int productId, int buyerId) {
+    public Transaction(int transactionId, int amount, String status, int productId, int buyerId) {
         this.transactionId = transactionId;
         this.amount = amount;
-        this.size = size;
         this.status = status;
         this.productId = productId;
         this.buyerId = buyerId;
@@ -37,13 +38,6 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
 
     public String getStatus() {
         return status;
@@ -70,7 +64,8 @@ public class Transaction {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transaction that = (Transaction) o;
@@ -83,11 +78,11 @@ public class Transaction {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Transaction{" +
                 "transactionId=" + transactionId +
                 ", amount=" + amount +
-                ", size='" + size + '\'' +
                 ", status='" + status + '\'' +
                 ", productId=" + productId +
                 ", buyerId=" + buyerId +

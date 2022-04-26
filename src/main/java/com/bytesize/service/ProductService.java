@@ -17,10 +17,13 @@ public interface ProductService {
     // update
 //    int serviceUpdateProductById(Product Product);
 
-
-
-
     // delete
     int serviceRemoveProductById(int id);
-}
 
+    Product serviceDisplayProductByProductID(int productId);
+
+
+    List<Product> serviceDisplayAllProductsBySellerId(int sellerId);
+
+
+}

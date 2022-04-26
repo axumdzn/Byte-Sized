@@ -1,0 +1,132 @@
+body
+{
+    margin: 80;
+    padding: 90;
+    background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+.block
+   {
+       width: 20%;
+       margin: auto;
+   }
+input,button
+   {
+display:inline-block;
+padding: 10px;
+   }
+.apple_juice
+{
+    width: 70%;
+    height: 85%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+}
+.strawberry_juice
+{
+    width: 70%;
+    height: 85%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+}
+.orange_juice
+{
+    width: 70%;
+    height: 85%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+}
+.fruit_cake
+{
+    width: 70%;
+    height: 85%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+}
+.mini_cupcake
+{
+    width: 70%;
+    height: 85%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+}
+.powdered_mini_fruit_cake
+{
+    width: 70%;
+    height: 85%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 25px 40px #1687d933;
+}
+.CartContainer
+{
+	width: 70%;
+	height: 90%;
+	background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px #1687d933;
+}
+.Cart-Items
+{
+    margin: auto;
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+.image-box
+   {
+    width: 15%;
+    text-align: center;
+   }
+.about
+   {
+    height: 100%;
+   }
+.title
+   {
+    padding-top: 5px;
+    line-height: 10px;
+    font-size: 32px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+    color: #202020;
+   }
+hr
+   {
+	width: 66%;
+	float: right;
+	margin-right: 5%;
+   }
+.prices
+   {
+    height: 100%;
+    text-align: right;
+   }
+.amount
+   {
+    padding-top: 20px;
+    font-size: 26px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+    color: #202020;
+   }
+.button
+   {
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+
+   
