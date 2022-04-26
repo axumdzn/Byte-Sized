@@ -8,12 +8,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.bytesize.daos.ProductDAO;
 import com.bytesize.daos.ProductDAOImp;
-import com.bytesize.entities.Product;
 import com.bytesize.service.ProductService;
 import com.bytesize.service.ProductServiceImp;
-import io.javalin.Javalin;
-
-import java.util.List;
 
 
 public class App {
@@ -51,6 +47,8 @@ public class App {
         app.post("/login", userController.userLogin);
 
         app.post("/messageSend", messageController.messageSend);
+
+        app.get("/getmessagesbyid/{id}", messageController.getmessagebyid);
 
         app.post("/productUpdate", ProductController.updateProduct);
 

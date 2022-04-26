@@ -8,6 +8,8 @@ import io.javalin.http.Handler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.List;
+
 
 public class MessageController {
     public static Logger logger = LogManager.getLogger(MessageController.class);
@@ -29,6 +31,25 @@ public class MessageController {
             logger.info("attempting to send user info to database " + message.getMessage());
             Message result = messageServiceInterface.sendMessage(message);
             logger.info("successfully added person with info: " + result + " to database");
+            String resultJson = gson.toJson(result);
+            ctx.result(resultJson);
+            ctx.status(201);
+            logger.info("all done!");
+        }catch(BadInput e) {
+            ctx.result(e.getMessage());
+            ctx.status(405);
+        }catch(UserNotFound e){
+            ctx.result(e.getMessage());
+            ctx.status(405);
+        }
+    };
+    public Handler getmessagebyid = ctx -> {
+        try{
+            int id = Integer.parseInt(ctx.pathParam("id"));
+            logger.info(id);
+            List<Message> result = messageServiceInterface.getMessagesById(id);
+            logger.info("2");
+            Gson gson = new Gson();
             String resultJson = gson.toJson(result);
             ctx.result(resultJson);
             ctx.status(201);
