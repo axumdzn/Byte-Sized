@@ -36,8 +36,10 @@ public class ProductDAOImp implements ProductDAO {
 
         try(Connection connection = DatabaseConnection.createConnection()) {
             String sql = "select * from products where productId = ?";
+
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
+
             ResultSet rs = ps.executeQuery();
             rs.next();
             Product product = new Product(

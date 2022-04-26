@@ -57,7 +57,11 @@ public class App
 
         app.post("/messageSend", messageController.messageSend);
 
-        app.post("/productUpdate", productController.updateProduct);
+
+        app.get("/getmessagesbyid/{id}", messageController.getmessagebyid);
+
+        app.post("/productUpdate", ProductController.updateProduct);
+
 
         logger.info("Starting web server");
         app.start();

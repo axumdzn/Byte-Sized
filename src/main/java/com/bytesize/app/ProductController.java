@@ -3,7 +3,6 @@ import com.bytesize.customExceptions.BadInput;
 import com.bytesize.customExceptions.IdNotFound;
 import com.bytesize.entities.Product;
 import com.bytesize.service.ProductService;
-import com.bytesize.service.ProductServiceImp;
 import com.google.gson.Gson;
 import io.javalin.http.Handler;
 import org.apache.logging.log4j.LogManager;
