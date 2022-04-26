@@ -61,18 +61,5 @@ public class MessageDAOImp implements MessageDAO {
             return null;
         }
     }
-
-
-    public static void main (String[] args){
-//        MessageDAOImp MDI = new MessageDAOImp();
-//        List<Message> result = MDI.getMessageById(2);
-//        System.out.println(result.get(0).toString());
-//        List<Message> testMessageList = new ArrayList<>();
-//        System.out.println(testMessageList.size());
-//        if(testMessageList.size() == 0){
-//            throw new UserNotFound("User id not found");
-//        }
-
-    }
 }
 
