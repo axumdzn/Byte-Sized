@@ -4,7 +4,6 @@ import com.bytesize.exceptions.IdNotFound;
 import com.bytesize.utils.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 public class ProductDAOImp implements ProductDAO {
 

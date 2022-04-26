@@ -1,9 +1,7 @@
-import com.bytesize.customExceptions.UserNotFound;
 import com.bytesize.daos.UserDAOImp;
 import com.bytesize.entities.User;
 import org.testng.annotations.Test;
 import org.testng.Assert;
-import sun.rmi.server.UnicastServerRef2;
 
 
 public class UserDAOTests {

@@ -10,7 +10,6 @@ import java.util.List;
 
 public class ProductServiceImp implements ProductService {
     public ProductDAO PD;
-    public ProductDAOImp productDAOImp;
 
 
     public ProductServiceImp(ProductDAO PD){
@@ -61,7 +60,7 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public Product serviceSelectProductById(int id) {
-        Product product = productDAOImp.selectProductById(id);
+        Product product = PD.selectProductById(id);
         if (product == null) {
             throw new IdNotFound("Please provide valid id");
         } else {
@@ -85,7 +84,7 @@ public class ProductServiceImp implements ProductService {
     @Override
     public Product serviceDisplayProductByProductID(int productId)
     {
-        Product product = productDAOInterface.displayProductByProductID(productId);
+        Product product = PD.displayProductByProductID(productId);
         if(product == null)
         {
             throw new com.bytesize.exceptions.IdNotFound("No products to show with this product ID");
@@ -99,7 +98,7 @@ public class ProductServiceImp implements ProductService {
     @Override
     public List<Product> serviceDisplayAllProductsBySellerId(int sellerId)
     {
-        List<Product> product = productDAOInterface.displayAllProductsBySellerId(sellerId);
+        List<Product> product = PD.displayAllProductsBySellerId(sellerId);
         if(product == null)
         {throw new com.bytesize.exceptions.IdNotFound("No products to show with this seller ID");}
         else
