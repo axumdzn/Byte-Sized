@@ -30,4 +30,14 @@ public class ByteSizedHome
     @FindBy
     public WebElement viewAllSellersProducts;
 
+    // this is Jeny's part
+    @FindBy(id = "addItem")
+    public WebElement addItem;
+
+    @FindBy
+    public WebElement removeItem;
+
+    @FindBy
+    public WebElement viewSalesData;
+
 }
