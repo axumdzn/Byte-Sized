@@ -1,0 +1,37 @@
+Byte-Sized
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="title2">Byte-Sized</title>
+</head>
+<body>
+    <div class="container">
+        <button id="removeButton" onclick="remove_item_page_refresh()">Remove</button>
+    </div>
+    
+
+    <script> 
+         const input = document.getElementById("removeButton");
+       
+        function removeProduct(productId)
+        {
+        // this stores products in local storage
+        
+        let storageProducts = JSON.parse(localStorage.getItem('products'));
+        let products = storageProducts.filter(product => product.productId !== productId );
+        localStorage.setItem('products', JSON.stringify(products));
+        }
+       
+
+        function remove_item_page_refresh()
+        {
+            window.localStorage.setItem("removeButton", input.value);
+            window.location.href = "Byte_Sized_Cart.html"; //change
+        }
+        </script>
+        
+</body>
+
+
+</html>
+    
