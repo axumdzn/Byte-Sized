@@ -17,9 +17,6 @@ public interface ProductService {
     // update
 //    int serviceUpdateProductById(Product Product);
 
-
-
-
     // delete
     int serviceRemoveProductById(int id);
 

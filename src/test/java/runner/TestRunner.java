@@ -34,6 +34,7 @@ public class TestRunner
         driver = new ChromeDriver();
 
         byteSizedHome = new ByteSizedHome(driver);
+        //ddHome = new DelayDisappearHome(driver);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));//keep seconds short
         wait = new WebDriverWait(driver,Duration.ofSeconds(4));
@@ -44,5 +45,7 @@ public class TestRunner
     {
         driver.quit();
     }
+
+
 
 }

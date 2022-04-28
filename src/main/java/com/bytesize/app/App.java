@@ -50,16 +50,18 @@ public class App
 
         ProductDAO PD = new ProductDAOImp();
         ProductService PS = new ProductServiceImp(PD);
-        ProductController ProductController = new ProductController(PS);
-        ProductDAO productDAO = new ProductDAOImp(); //type is interface; object is imp class
-        ProductService productService = new ProductServiceImp(productDAO); //type is interface; object is imp class
-        JavalinController controller = new JavalinController(productService);
+        ProductController productController = new ProductController(PS);
+        JavalinController controller = new JavalinController(PS);
 
         app.post("/login", userController.userLogin);
 
         app.post("/messageSend", messageController.messageSend);
 
-        app.post("/productUpdate", ProductController.updateProduct);
+
+        app.get("/getmessagesbyid/{id}", messageController.getmessagebyid);
+
+
+        app.post("/productUpdate", productController.updateProduct);
 
         logger.info("Starting web server");
         app.start();
@@ -94,6 +96,18 @@ public class App
         app.get("/products/{sellerId}", controller.getAllProductsBySellerId);
 
         logger.info("Starting web server");
+
+
+
+//        TransactionController transactionController = new TransactionController();
+//        RatingController ratingController = new RatingController();
+//
+//        app.post("/api/transaction",transactionController.createTransaction);
+//        app.get("/api/transaction/{id}",transactionController.getTransactionInfo);
+//        app.put("/api/transaction/{id}/{status}", transactionController.updateTransactionStatus);
+//        app.post("/api/rating", ratingController.createRating);
+//        app.get("/api/rating/average/{id}", ratingController.getAverageRating);
+//        app.get("/api/rating/{id}", ratingController.getAllRatings);
 
         app.start();
     }

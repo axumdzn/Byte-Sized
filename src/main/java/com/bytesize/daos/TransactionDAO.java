@@ -1,16 +1,9 @@
-//package com.bytesize.daos;
-//import com.bytesize.entities.Transaction;
-//import java.util.List; // this is for linked list
+import com.bytesize.entities.Transaction;
 
-//fields are public static final; methods are public abstract
-public interface TransactionDAO
-{
-//    // be able to add items to cart and then remove an item
-//
-//List<Transaction> cancelItem();
-//
-//List<Transaction> addItem();
+public interface TransactionDAO {
+    Transaction createTransaction(Transaction newTransaction);
 
+    Transaction getTransactionInfo(int transactionId);
 
-
+    Transaction updateTransactionStatus(int transactionId, String status);
 }

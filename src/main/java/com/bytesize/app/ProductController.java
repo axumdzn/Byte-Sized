@@ -3,7 +3,6 @@ import com.bytesize.customExceptions.BadInput;
 import com.bytesize.customExceptions.IdNotFound;
 import com.bytesize.entities.Product;
 import com.bytesize.service.ProductService;
-import com.bytesize.service.ProductServiceImp;
 import com.google.gson.Gson;
 import io.javalin.http.Handler;
 import org.apache.logging.log4j.LogManager;
@@ -52,7 +51,7 @@ public class ProductController {
             Product result =  productServiceInterface.serviceCreateProduct(product);
             String resultJson = gson.toJson(result);
             ctx.result(resultJson);
-            ctx.status(405);
+            ctx.status(200);
         } catch (BadInput e){
             ctx.result(e.getMessage());
             ctx.status(405);

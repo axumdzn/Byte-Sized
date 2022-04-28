@@ -4,7 +4,6 @@ import com.bytesize.exceptions.IdNotFound;
 import com.bytesize.utils.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 public class ProductDAOImp implements ProductDAO
 {
@@ -38,8 +37,10 @@ public class ProductDAOImp implements ProductDAO
 
         try(Connection connection = DatabaseConnection.createConnection()) {
             String sql = "select * from products where productId = ?";
+
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
+
             ResultSet rs = ps.executeQuery();
             rs.next();
             Product product = new Product(

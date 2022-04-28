@@ -10,8 +10,3 @@ Feature: Buyers should be able to cancel an item in their cart
     Given I am on the seller's page
     Then I should see the seller's products
 
-
-
-
-
-

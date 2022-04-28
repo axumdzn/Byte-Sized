@@ -6,7 +6,6 @@ import com.bytesize.service.UserServiceImp;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.mockito.Mockito;
-import org.mockito.internal.verification.VerificationModeFactory;
 import org.testng.annotations.Test;
 
 public class UserServiceTests {

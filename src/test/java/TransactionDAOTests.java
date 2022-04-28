@@ -1,36 +1,39 @@
-//import com.bytesize.daos.ProductDAOImp;
-//import com.bytesize.daos.TransactionDAO;
-//import com.bytesize.entities.Product;
-//import com.bytesize.entities.Transaction;
 //import com.bytesize.daos.TransactionDAOImp;
-//import org.testng.Assert;
+//import com.bytesize.entities.Transaction;
 //import org.testng.annotations.Test;
-//
-//import java.util.List;
-
-public class TransactionDAOTests
-{
-
-//    TransactionDAOImp transactionDAOImp = new TransactionDAOImp();
-//    ProductDAOImp productImpObject = new ProductDAOImp();
+//import org.testng.Assert;
 //
 //
-//    // Positive Test
+//
+//public class TransactionDAOTests {
+//
+//    TransactionDAOImp transactionDAO = new TransactionDAOImp();
+//
 //    @Test
-//    public void cancelItemSuccess()
-//    {
-//        // test: update product amount in database, remove from list, return list
-//        List<Transaction> transaction = productImpObject.getInventory();
-//        Assert.assertTrue(product.size() >= 1);
-//
-//
+//    public void createTransactionSuccess(){
+//        Transaction transaction = new Transaction(0, 24, "Processing",9,1);
+//        Transaction result = transactionDAO.createTransaction(transaction);
+//        Assert.assertEquals(result.getAmount(),24);
 //    }
 //
-//    // Negative Test
 //    @Test
-//    public void cancelItemFailure()
-//    {
-//
+//    public void createTransactionUniqueId(){
+//        Transaction transaction = new Transaction(0, 24, "Processing",9,1);
+//        Transaction result = transactionDAO.createTransaction(transaction);
+//        Assert.assertTrue(result.getTransactionId()!=0);
 //    }
-
-}
+//
+//    @Test
+//    public void getTransactionInfoSuccess(){
+//        Transaction result = transactionDAO.getTransactionInfo(3);
+//        Assert.assertEquals(result.getTransactionId(),3);
+//    }
+//
+//    @Test
+//    public void updateTransactionSuccess(){
+//        Transaction result = transactionDAO.updateTransactionStatus(3, "Shipping");
+//        Assert.assertEquals(result.getStatus(),"Shipping");
+//    }
+//
+//
+//}
