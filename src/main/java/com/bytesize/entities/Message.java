@@ -3,17 +3,18 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class Message {
-    private int messageId, buyerId, sellerId, senderId;
-    private String message;
+    private int messageId, idFrom, idTo;
+    private String message, nameFrom, title;
     private Date dateCreated;
 
-    public Message(int messageId, int buyerId, int sellerId, int senderId, String message) {
+    public Message(int messageId, int idFrom, int idTo, String message, String title) {
         this.messageId = messageId;
-        this.buyerId = buyerId;
-        this.sellerId = sellerId;
-        this.senderId = senderId;
+        this.idFrom = idFrom;
+        this.idTo = idTo;
         this.message = message;
+        this.title = title;
     }
+
 
     public int getMessageId() {
         return messageId;
@@ -23,28 +24,20 @@ public class Message {
         this.messageId = messageId;
     }
 
-    public int getBuyerId() {
-        return buyerId;
+    public int getIdFrom() {
+        return idFrom;
     }
 
-    public void setBuyerId(int buyerId) {
-        this.buyerId = buyerId;
+    public void setIdFrom(int idFrom) {
+        this.idFrom = idFrom;
     }
 
-    public int getSellerId() {
-        return sellerId;
+    public int getIdTo() {
+        return idTo;
     }
 
-    public void setSellerId(int sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public int getSenderId() {
-        return senderId;
-    }
-
-    public void setSenderId(int senderId) {
-        this.senderId = senderId;
+    public void setIdTo(int idTo) {
+        this.idTo = idTo;
     }
 
     public String getMessage() {
@@ -53,6 +46,22 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getNameFrom() {
+        return nameFrom;
+    }
+
+    public void setNameFrom(String nameFrom) {
+        this.nameFrom = nameFrom;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Date getDateCreated() {
@@ -68,22 +77,23 @@ public class Message {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Message message1 = (Message) o;
-        return messageId == message1.messageId && buyerId == message1.buyerId && sellerId == message1.sellerId && senderId == message1.senderId && message.equals(message1.message) && dateCreated.equals(message1.dateCreated);
+        return messageId == message1.messageId && idFrom == message1.idFrom && idTo == message1.idTo && message.equals(message1.message) && nameFrom.equals(message1.nameFrom) && title.equals(message1.title) && dateCreated.equals(message1.dateCreated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(messageId, buyerId, sellerId, senderId, message, dateCreated);
+        return Objects.hash(messageId, idFrom, idTo, message, nameFrom, title, dateCreated);
     }
 
     @Override
     public String toString() {
         return "Message{" +
                 "messageId=" + messageId +
-                ", buyerId=" + buyerId +
-                ", sellerId=" + sellerId +
-                ", senderId=" + senderId +
+                ", idFrom=" + idFrom +
+                ", idTo=" + idTo +
                 ", message='" + message + '\'' +
+                ", nameFrom='" + nameFrom + '\'' +
+                ", title='" + title + '\'' +
                 ", dateCreated=" + dateCreated +
                 '}';
     }

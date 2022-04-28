@@ -15,23 +15,21 @@ import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/BuyItem.feature"},
-        glue = {"steps"}
-        //plugin = {""}
-
+        features = {"src/test/resources/features/ByteSizedLinks.feature"},
+        glue = {"steps"},
+        plugin = {"pretty","html:src/test/resources/reports/html-e2e-report.html"} //copy path reference of resources folder from content root
 )
 public class TestRunner
 {
 
     public static WebDriver driver;
     public static ByteSizedHome byteSizedHome; //field represents POM
-    //public static DelayDisappearHome ddHome;
     public static WebDriverWait wait;
 
     @BeforeClass
     public static void setup()
     {//below sets your driver as a chrome driver
-        File file = new File("src/test/resources/chromedriver.exe");
+        File file = new File("src/test/resources/chromedriver.exe"); //content root
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
 

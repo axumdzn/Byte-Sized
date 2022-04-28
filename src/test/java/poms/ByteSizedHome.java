@@ -10,6 +10,10 @@ public class ByteSizedHome
 {
     private WebDriver driver;
 
+    private By usernameField = By.id("username-field");
+    private By passwordField = By.id("password-field");
+    private By loginButton = By.id("login");
+
     public ByteSizedHome(WebDriver driver)
     {
         this.driver = driver;
@@ -18,24 +22,31 @@ public class ByteSizedHome
 
     @FindBy(id = "purchase")
     public WebElement purchase;
+    @FindBy(className = "shop-item-button")
+    public WebElement addItem;
+
+    @FindBy(className = "btn-danger")
+    public WebElement removeItem;
 
     @FindBy()
-    public WebElement cancelItem;
-
-    @FindBy
     public WebElement messageSeller;
 
     @FindBy
     public WebElement viewStats;
 
-    @FindBy
-    public WebElement viewAllSellersProducts;
 
-    private By usernameField = By.id("username-field");
-    private By passwordField = By.id("password-field");
-    private By loginButton = By.id("login");
 
-    private By addToCart = By.id("button1");
+
+
+    @FindBy(id = "username-field")
+    public WebElement userNameSelector;
+
+    @FindBy(id = "password-field")
+    public WebElement passWordSelector;
+
+    @FindBy(id = "login")
+    public WebElement clickSubmitButton;
+
 
     public void sendKeysToUsername(String input){
         driver.findElement(usernameField).sendKeys(input);
@@ -46,6 +57,7 @@ public class ByteSizedHome
     public void clickLogin(){
         driver.findElement(loginButton).click();
     }
+    private By addToCart = By.id("button1");
 
     public void clickAddToCart(){
         driver.findElement(addToCart).click();

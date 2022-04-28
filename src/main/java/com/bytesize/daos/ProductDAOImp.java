@@ -5,7 +5,8 @@ import com.bytesize.utils.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-public class ProductDAOImp implements ProductDAO {
+public class ProductDAOImp implements ProductDAO
+{
 
     @Override
     public Product createProduct(Product Product) {
@@ -36,8 +37,10 @@ public class ProductDAOImp implements ProductDAO {
 
         try(Connection connection = DatabaseConnection.createConnection()) {
             String sql = "select * from products where productId = ?";
+
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
+
             ResultSet rs = ps.executeQuery();
             rs.next();
             Product product = new Product(
@@ -111,11 +114,7 @@ public class ProductDAOImp implements ProductDAO {
             return 0;
         }
     }
-    public static void  main (String[] args){
-        ProductDAOImp PDI = new ProductDAOImp();
-        ArrayList<Product> result = PDI.selectAllProducts();
-        System.out.println(result.toString());
-    }
+
     @Override
     public Product displayProductByProductID(int productId)
     {
