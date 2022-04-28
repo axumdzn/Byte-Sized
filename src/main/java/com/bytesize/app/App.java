@@ -60,6 +60,7 @@ public class App
 
         app.get("/getmessagesbyid/{id}", messageController.getmessagebyid);
 
+
         app.post("/productUpdate", productController.updateProduct);
 
         logger.info("Starting web server");

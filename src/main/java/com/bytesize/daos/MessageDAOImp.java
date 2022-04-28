@@ -28,6 +28,7 @@ public class MessageDAOImp implements MessageDAO {
             return null;
         }
     }
+
     @Override
     public List<Message> getMessageById(int id) {
         try (Connection connection = DatabaseConnection.createConnection()) {
