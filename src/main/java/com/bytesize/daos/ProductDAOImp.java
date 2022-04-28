@@ -6,7 +6,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-public class ProductDAOImp implements ProductDAO {
+public class ProductDAOImp implements ProductDAO
+{
 
     @Override
     public Product createProduct(Product Product) {
@@ -112,11 +113,7 @@ public class ProductDAOImp implements ProductDAO {
             return 0;
         }
     }
-    public static void  main (String[] args){
-        ProductDAOImp PDI = new ProductDAOImp();
-        ArrayList<Product> result = PDI.selectAllProducts();
-        System.out.println(result.toString());
-    }
+
     @Override
     public Product displayProductByProductID(int productId)
     {

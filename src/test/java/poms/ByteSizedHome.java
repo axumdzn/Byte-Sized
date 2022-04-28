@@ -15,19 +15,14 @@ public class ByteSizedHome
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "addProduct")
-    public WebElement addProduct;
+    @FindBy(className = "shop-item-button")
+    public WebElement addItem;
 
-    @FindBy()
-    public WebElement cancelItem;
+    @FindBy(className = "btn-danger")
+    public WebElement removeItem;
 
-    @FindBy
-    public WebElement messageSeller;
 
-    @FindBy
-    public WebElement viewStats;
 
-    @FindBy
-    public WebElement viewAllSellersProducts;
+
 
 }

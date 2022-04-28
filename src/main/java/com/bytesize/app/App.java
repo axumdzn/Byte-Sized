@@ -70,7 +70,7 @@ public class App
     // this is coding to the interface: set the type as the interface, the object constructor used is form the implements class
 
         ProductDAOImp productDao = new ProductDAOImp();
-       ProductService productService = new ProductServiceImp(productDao) ;
+       //ProductService productService = new ProductServiceImp(productDao) ;
         ProductController productController = new ProductController(productService);
 
 

@@ -82,7 +82,7 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && sellerId == product.sellerId && Objects.equals(title, product.title) && Objects.equals(description, product.description) && Objects.equals(sizes, product.sizes);
+        return productId == product.productId && Float.compare(product.price, price) == 0 && inventory == product.inventory && sellerId == product.sellerId && Objects.equals(title, product.title) && Objects.equals(description, product.description);
     }
 
     @Override
@@ -99,7 +99,6 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", inventory=" + inventory +
-                ", sizes=" + sizes +
                 ", sellerId=" + sellerId +
                 '}';
     }
