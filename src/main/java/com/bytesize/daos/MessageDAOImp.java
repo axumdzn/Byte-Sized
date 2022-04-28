@@ -2,8 +2,6 @@ package com.bytesize.daos;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.bytesize.customExceptions.UserNotFound;
 import com.bytesize.entities.Message;
 import com.bytesize.utils.DatabaseConnection;
 
@@ -11,7 +9,6 @@ public class MessageDAOImp implements MessageDAO {
     @Override
     public Message sendMessageDAO(Message message) {
         try (Connection connection = DatabaseConnection.createConnection()) {
-//            insert into messages1 values(default, idto 1, title 'food', message 'too expensive',default, idfrome);
             String sql = "insert into messages1 values(default,? ,?, ?, default, ?)";
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, message.getIdTo());
@@ -31,7 +28,6 @@ public class MessageDAOImp implements MessageDAO {
             return null;
         }
     }
-
 
     @Override
     public List<Message> getMessageById(int id) {

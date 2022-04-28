@@ -60,8 +60,8 @@ public class App
 
         app.get("/getmessagesbyid/{id}", messageController.getmessagebyid);
 
-        app.post("/productUpdate", ProductController.updateProduct);
 
+        app.post("/productUpdate", productController.updateProduct);
 
         logger.info("Starting web server");
         app.start();
@@ -94,15 +94,15 @@ public class App
 
     
 
-        TransactionController transactionController = new TransactionController();
-        RatingController ratingController = new RatingController();
-
-        app.post("/api/transaction",transactionController.createTransaction);
-        app.get("/api/transaction/{id}",transactionController.getTransactionInfo);
-        app.put("/api/transaction/{id}/{status}", transactionController.updateTransactionStatus);
-        app.post("/api/rating", ratingController.createRating);
-        app.get("/api/rating/average/{id}", ratingController.getAverageRating);
-        app.get("/api/rating/{id}", ratingController.getAllRatings);
+//        TransactionController transactionController = new TransactionController();
+//        RatingController ratingController = new RatingController();
+//
+//        app.post("/api/transaction",transactionController.createTransaction);
+//        app.get("/api/transaction/{id}",transactionController.getTransactionInfo);
+//        app.put("/api/transaction/{id}/{status}", transactionController.updateTransactionStatus);
+//        app.post("/api/rating", ratingController.createRating);
+//        app.get("/api/rating/average/{id}", ratingController.getAverageRating);
+//        app.get("/api/rating/{id}", ratingController.getAllRatings);
 
         app.start();
     }
