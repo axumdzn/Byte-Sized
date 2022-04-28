@@ -33,9 +33,7 @@ public class ByteSizedMessage {
     @FindBy(id = "submitButton")
     public WebElement clickSubmitButton;
 
-    public void typeInTitle(String input){
-        driver.findElement(title).sendKeys(input);
-    }
+    public void typeInTitle(String input){driver.findElement(title).sendKeys(input);}
     public void typeInUserId(String input){
         driver.findElement(userId).sendKeys(input);
     }

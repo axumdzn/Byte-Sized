@@ -16,10 +16,9 @@ import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/Login.feature"},
+        features = {"src/test/resources/features"},
         glue = {"steps"},
-        plugin = {"pretty","html:src/test/resources/reports/html-e2e-report.html"
-}
+        plugin = {"pretty","html:src/test/resources/reports/html-e2e-report.html"}
 
 
 )
@@ -39,7 +38,6 @@ public class TestRunner
         driver = new ChromeDriver();
 
         byteSizedHome = new ByteSizedHome(driver);
-
         ByteSizedMessage = new ByteSizedMessage(driver);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));//keep seconds short
