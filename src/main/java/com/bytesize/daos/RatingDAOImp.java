@@ -34,16 +34,16 @@ public class RatingDAOImp implements RatingDAO{
     @Override
     public int getAverageRatingBySellerID(int id) {
         try(Connection connection = DatabaseConnection.createConnection()){
-            String sql = "select avg(rate) from ratings where sellerID = ?";
+            String sql = "select avg(rate) from ratings where sellerId = ?";
             PreparedStatement ps = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1,id);
             ps.execute();
-            ResultSet rs = ps.getResultSet();
+            ResultSet rs = ps.executeQuery();
             if(rs.next()==false) {
                 throw new BadInput("No rating found");
             }
             else{
-                int result = rs.getInt(0);
+                int result = rs.getInt(1);
                 return result;
             }
 

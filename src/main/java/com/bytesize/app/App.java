@@ -59,8 +59,7 @@ public class App
 
         app.post("/productUpdate", productController.updateProduct);
 
-        logger.info("Starting web server");
-        app.start();
+
 
 
 
@@ -79,7 +78,7 @@ public class App
 
         app.put("/UpdateProduct", productController.updateProduct);
 
-        app.delete("RemoveProduct/{id}", productController.removeProduct);
+        app.delete("/RemoveProduct/{id}", productController.removeProduct);
         // tashawn
 
         app.get("/product/{productId}", controller.getProductByProductId);
@@ -99,6 +98,9 @@ public class App
         app.post("/api/rating", ratingController.createRating);
         app.get("/api/rating/average/{id}", ratingController.getAverageRating);
         app.get("/api/rating/{id}", ratingController.getAllRatings);
+        app.get("/api/transactions/{id}", transactionController.getAllTransactionsByBuyerId);
+        app.get("/api/user/{id}", userController.userSelect);
+        app.get("/api/transactions/product/{id}", transactionController.getAllTransactionsByProductId);
 
         app.start();
     }

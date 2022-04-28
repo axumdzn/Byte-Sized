@@ -5,10 +5,13 @@ import com.bytesize.entities.Rating;
 import com.bytesize.service.RatingServiceImp;
 import com.google.gson.Gson;
 import io.javalin.http.Handler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class RatingController {
+    public static Logger logger = LogManager.getLogger(TransactionController.class);
 
     RatingDAOImp ratingDAOImp = new RatingDAOImp();
     RatingServiceImp ratingServiceImp = new RatingServiceImp(ratingDAOImp);
@@ -30,6 +33,7 @@ public class RatingController {
             ctx.status(400);
         }
         else {
+            logger.info("result is " + result);
             Gson gson = new Gson();
             String body = gson.toJson(result);
             ctx.result(body);
@@ -39,6 +43,7 @@ public class RatingController {
     public Handler getAllRatings = ctx ->{
         int id = Integer.parseInt(ctx.pathParam("id"));
         List<Rating> result = ratingServiceImp.serviceGetAllRatingsById(id);
+        logger.info("result is " + result);
         if(result.size() == 0){
             ctx.result("No Ratings found");
             ctx.status(400);

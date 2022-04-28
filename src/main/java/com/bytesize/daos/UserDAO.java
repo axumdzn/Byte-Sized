@@ -5,4 +5,5 @@ public interface UserDAO {
 
     User selectUserByLoginInfo(String userName, String passWord);
 
+    User selectUserById(int id);
 }

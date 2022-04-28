@@ -15,8 +15,8 @@ import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/ByteSizedLinks.feature"},
-        glue = {"steps/ByteSizedSteps"}
+        features = {"src/test/resources/features/BuyItem.feature"},
+        glue = {"steps"}
         //plugin = {""}
 
 )
@@ -36,10 +36,9 @@ public class TestRunner
         driver = new ChromeDriver();
 
         byteSizedHome = new ByteSizedHome(driver);
-        //ddHome = new DelayDisappearHome(driver);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));//keep seconds short
-        wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+        wait = new WebDriverWait(driver,Duration.ofSeconds(10));
     }
 
     @AfterClass

@@ -5,6 +5,8 @@ import com.bytesize.customExceptions.IdNotFound;
 import com.bytesize.daos.TransactionDAOImp;
 import com.bytesize.entities.Transaction;
 
+import java.util.List;
+
 public class TransactionServiceImp implements TransactionService{
 
     TransactionDAOImp  transactionDAOImp;
@@ -44,5 +46,21 @@ public class TransactionServiceImp implements TransactionService{
             throw new IdNotFound("Wrong Id entered");
         }
         return transactionDAOImp.updateTransactionStatus(transactionId, status);
+    }
+
+    @Override
+    public List<Transaction> serviceGetAllTransactionsByBuyerId(int buyerId) {
+        if(buyerId<=0){
+            throw new IdNotFound("Wrong Id entered");
+        }
+        return transactionDAOImp.getAllTransactionByBuyerId(buyerId);
+    }
+
+    @Override
+    public List<Transaction> serviceGetAllTransactionsByProductId(int productId) {
+        if(productId<=0){
+            throw new IdNotFound("Wrong Id entered");
+        }
+        return transactionDAOImp.getAllTransactionByProductId(productId);
     }
 }
