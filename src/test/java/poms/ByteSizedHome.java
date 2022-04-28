@@ -20,6 +20,8 @@ public class ByteSizedHome
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(id = "purchase")
+    public WebElement purchase;
     @FindBy(className = "shop-item-button")
     public WebElement addItem;
 
@@ -54,5 +56,16 @@ public class ByteSizedHome
     }
     public void clickLogin(){
         driver.findElement(loginButton).click();
+    }
+    private By addToCart = By.id("button1");
+
+    public void clickAddToCart(){
+        driver.findElement(addToCart).click();
+    }
+
+    private By purchaseBtn = By.id("purchase");
+
+    public void clickPurchase(){
+        driver.findElement(purchaseBtn).click();
     }
 }

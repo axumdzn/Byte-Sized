@@ -5,7 +5,7 @@
 async function createTransaction(){
     // placeholders for actual names that need to be put in
     const amount = document.getElementById("price")
-    const user = JSON.parse(localStorage.getItem("user"))
+    const user = JSON.parse(localStorage.getItem("userId"))
     const productId = document.getElementById("productID");
     const transaction = {
         transactionId: 0,

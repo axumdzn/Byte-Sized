@@ -31,7 +31,7 @@ public class RatingServiceImp implements RatingService{
 
     @Override
     public int serviceGetAverageRatingBySellerID(int id) {
-        if(id<1){
+        if(id<0){
             throw new IdNotFound("This id is not found");
 
         }
@@ -42,7 +42,7 @@ public class RatingServiceImp implements RatingService{
 
     @Override
     public List<Rating> serviceGetAllRatingsById(int id) {
-        if(id<1){
+        if(id<0){
             throw new IdNotFound("This id is not found");
 
         }

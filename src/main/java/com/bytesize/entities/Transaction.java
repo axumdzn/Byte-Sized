@@ -3,11 +3,10 @@ package com.bytesize.entities;
 import java.util.Objects;
 
 // This is the Java Bean Class
-public class Transaction extends Product
+public class Transaction
 {
     private int transactionId;
     private int amount;
-    private String size;
     private String status;
     private int productId;
     private int buyerId;
@@ -69,12 +68,12 @@ public class Transaction extends Product
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transaction that = (Transaction) o;
-        return transactionId == that.transactionId && amount == that.amount && productId == that.productId && buyerId == that.buyerId && Objects.equals(size, that.size) && Objects.equals(status, that.status);
+        return transactionId == that.transactionId && amount == that.amount && productId == that.productId && buyerId == that.buyerId  && Objects.equals(status, that.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transactionId, amount, size, status, productId, buyerId);
+        return Objects.hash(transactionId, amount, status, productId, buyerId);
     }
 
     @Override

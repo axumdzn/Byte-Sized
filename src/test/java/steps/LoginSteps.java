@@ -28,6 +28,8 @@ public class LoginSteps {
     @When("I click the button")
     public void i_click_the_button() {
         TestRunner.byteSizedHome.clickLogin();
+        TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+        TestRunner.driver.switchTo().alert().accept();
         TestRunner.wait.until(ExpectedConditions.titleIs("Byte-Sized Shopping"));
         //        throw new io.cucumber.java.PendingException();
     }

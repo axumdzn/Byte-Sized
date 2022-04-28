@@ -41,4 +41,18 @@ public class UserController {
             ctx.status(405);
         }
     };
+
+    public Handler userSelect = ctx -> {
+        try{
+            int id = Integer.parseInt(ctx.pathParam("id"));
+            User result = UserServiceInterface.serviceSelectUserById(id);
+            Gson gson = new Gson();
+            String newBody = gson.toJson(result);
+            ctx.result(newBody);
+            ctx.status(200);
+        }catch(UserNotFound e){
+            ctx.result(e.getMessage());
+            ctx.status(405);
+        }
+    };
 }

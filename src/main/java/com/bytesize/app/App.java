@@ -63,19 +63,12 @@ public class App
 
         app.post("/productUpdate", productController.updateProduct);
 
-        logger.info("Starting web server");
-        app.start();
+
 
 
 
 
     // this is coding to the interface: set the type as the interface, the object constructor used is form the implements class
-
-        ProductDAOImp productDao = new ProductDAOImp();
-       //ProductService productService = new ProductServiceImp(productDao) ;
-        ProductController productController = new ProductController(productService);
-
-
 
 
         app.get("/", productController.addProduct);
@@ -89,7 +82,8 @@ public class App
 
         app.put("/UpdateProduct", productController.updateProduct);
 
-        app.delete("RemoveProduct/{id}", productController.removeProduct);
+        app.delete("/RemoveProduct/{id}", productController.removeProduct);
+        // tashawn
 
         app.get("/product/{productId}", controller.getProductByProductId);
 
@@ -97,17 +91,18 @@ public class App
 
         logger.info("Starting web server");
 
+        TransactionController transactionController = new TransactionController();
+        RatingController ratingController = new RatingController();
 
-
-//        TransactionController transactionController = new TransactionController();
-//        RatingController ratingController = new RatingController();
-//
-//        app.post("/api/transaction",transactionController.createTransaction);
-//        app.get("/api/transaction/{id}",transactionController.getTransactionInfo);
-//        app.put("/api/transaction/{id}/{status}", transactionController.updateTransactionStatus);
-//        app.post("/api/rating", ratingController.createRating);
-//        app.get("/api/rating/average/{id}", ratingController.getAverageRating);
-//        app.get("/api/rating/{id}", ratingController.getAllRatings);
+        app.post("/api/transaction",transactionController.createTransaction);
+        app.get("/api/transaction/{id}",transactionController.getTransactionInfo);
+        app.put("/api/transaction/{id}/{status}", transactionController.updateTransactionStatus);
+        app.post("/api/rating", ratingController.createRating);
+        app.get("/api/rating/average/{id}", ratingController.getAverageRating);
+        app.get("/api/rating/{id}", ratingController.getAllRatings);
+        app.get("/api/transactions/{id}", transactionController.getAllTransactionsByBuyerId);
+        app.get("/api/user/{id}", userController.userSelect);
+        app.get("/api/transactions/product/{id}", transactionController.getAllTransactionsByProductId);
 
         app.start();
     }
