@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import runner.TestRunner;
 
+
+
 public class MessageSteps {
 
     @Given("I am on the message page")
@@ -17,25 +19,25 @@ public class MessageSteps {
 
     @When("I type in hey you there")
     public void i_type_in_hey_you_there() {
-        TestRunner.ByteSizedMessage.typeInTitle("I type in hey you there");
+        TestRunner.byteSizedMessage.typeInTitle("I type in hey you there");
         throw new io.cucumber.java.PendingException();
     }
 
     @When("I type in {int}")
     public void i_type_in() {
-        TestRunner.ByteSizedMessage.typeInUserId("2");
+        TestRunner.byteSizedMessage.typeInUserId("2");
         throw new io.cucumber.java.PendingException();
     }
 
     @When("I type in your food is too expensive")
     public void i_type_in_your_food_is_too_expensive() {
-        TestRunner.ByteSizedMessage.typeInTestArea("food is too expensive");
+        TestRunner.byteSizedMessage.typeInTestArea("food is too expensive");
         throw new io.cucumber.java.PendingException();
     }
 
     @When("I click a submit button")
     public void i_click_a_submit_button() {
-        TestRunner.ByteSizedMessage.clickSubmitButton();
+        TestRunner.byteSizedMessage.clickSubmitButton();
         throw new io.cucumber.java.PendingException();
     }
 

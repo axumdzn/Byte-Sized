@@ -10,6 +10,7 @@ import com.bytesize.daos.ProductDAOImp;
 import com.bytesize.service.ProductService;
 import com.bytesize.service.ProductServiceImp;
 
+import java.util.List;
 
 public class App
 {
@@ -52,7 +53,6 @@ public class App
         ProductController productController = new ProductController(PS);
         JavalinController controller = new JavalinController(PS);
 
-        // yw
         app.post("/login", userController.userLogin);
 
         app.post("/messageSend", messageController.messageSend);
@@ -63,14 +63,13 @@ public class App
 
         app.post("/productUpdate", productController.updateProduct);
 
-        logger.info("Starting web server");
-        app.start();
 
 
 
 
 
-        // jeny
+    // this is coding to the interface: set the type as the interface, the object constructor used is form the implements class
+
 
         app.get("/", productController.addProduct);
         //app.post("/person", productController.)
@@ -83,7 +82,7 @@ public class App
 
         app.put("/UpdateProduct", productController.updateProduct);
 
-        app.delete("RemoveProduct/{id}", productController.removeProduct);
+        app.delete("/RemoveProduct/{id}", productController.removeProduct);
         // tashawn
 
         app.get("/product/{productId}", controller.getProductByProductId);
@@ -92,18 +91,20 @@ public class App
 
         logger.info("Starting web server");
 
-    
+        TransactionController transactionController = new TransactionController();
+        RatingController ratingController = new RatingController();
 
-//        TransactionController transactionController = new TransactionController();
-//        RatingController ratingController = new RatingController();
-//
-//        app.post("/api/transaction",transactionController.createTransaction);
-//        app.get("/api/transaction/{id}",transactionController.getTransactionInfo);
-//        app.put("/api/transaction/{id}/{status}", transactionController.updateTransactionStatus);
-//        app.post("/api/rating", ratingController.createRating);
-//        app.get("/api/rating/average/{id}", ratingController.getAverageRating);
-//        app.get("/api/rating/{id}", ratingController.getAllRatings);
+        app.post("/api/transaction",transactionController.createTransaction);
+        app.get("/api/transaction/{id}",transactionController.getTransactionInfo);
+        app.put("/api/transaction/{id}/{status}", transactionController.updateTransactionStatus);
+        app.post("/api/rating", ratingController.createRating);
+        app.get("/api/rating/average/{id}", ratingController.getAverageRating);
+        app.get("/api/rating/{id}", ratingController.getAllRatings);
+        app.get("/api/transactions/{id}", transactionController.getAllTransactionsByBuyerId);
+        app.get("/api/user/{id}", userController.userSelect);
+        app.get("/api/transactions/product/{id}", transactionController.getAllTransactionsByProductId);
 
         app.start();
     }
+
 }

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title">Byte-Sized Shopping</title>
+        <link rel="stylesheet" href="../css/SellerPageCSS.css" />
+    </head>
+    <body>
+        <header class="main-header">
+            <nav class="main-nav nav">
+                <ul>
+                    <li id="home"><a href="home.html">HOME</a></li>
+                    <li id="profile"><a href="user.html">PROFILE</a></li>
+                    <li id="message"><a href="message.html">MESSAGE</a></li>
+                    <li id="logout"><a href="login.html">LOGOUT</a></li>
+                </ul>
+            </nav>
+
+            <h1 class="band-name band-name-small">Welcome to the</h1>
+            <h2 class="band-name band-name-medium">BYTE-SIZED SHOP</h2>
+        </header>
+
+        <section class="container content-section">
+            
+            <div class="shop-items">
+
+                <div class="shop-item">
+                    <span class="shop-item-title">APPLE JUICE</span>
+                    <div class="image-box">
+                        <img class="shop-item-image" src="../images/apple_juice.jpg" alt="I can't find the picture"/>
+                    </div>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$2.99</span>
+                        <button id="button1"class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                    <span class="shop-item-title">FRUIT CAKE</span>
+                    <div class="image-box">
+                        <img class="shop-item-image" src="../images/fruit_cake.jpg" alt="I can't find the picture"/>
+                    </div>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$5.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                    <span class="shop-item-title">STRAWBERRY JUICE</span>
+                    <div class="image-box">
+                        <img class="shop-item-image" src="../images/strawberry_juice.jpg" alt="I can't find the picture"/>
+                    </div>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$3.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+
+                
+
+                <div class="shop-item">
+                    <span class="shop-item-title">MINI CUPCAKE</span>
+                    <div class="image-box">
+                        <img class="shop-item-image" src="../images/mini_cupcake.jpg" alt="I can't find the picture"/>
+                    </div>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$4.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                    <span class="shop-item-title">ORANGE JUICE</span>
+                    <div class="image-box">
+                        <img class="shop-item-image" src="../images/orange_juice.jpg" alt="I can't find the picture"/>
+                    </div>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$2.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                
+                <div class="shop-item">
+                    <span class="shop-item-title">POWDERED MINI FRUIT CAKE</span>
+                    <div class="image-box">
+                        <img class="shop-item-image" src="../images/powdered_mini_fruit_cake.jpg" alt="I can't find the picture"/>
+                    </div>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$3.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+       
+        <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button id="purchase" class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
+     
+        <script src="../js/SellerPageJavaScript.js" async></script>
+    </body>
+</html>

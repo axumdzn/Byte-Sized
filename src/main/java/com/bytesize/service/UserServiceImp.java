@@ -23,6 +23,19 @@ public class UserServiceImp implements UserService {
         }
         return result;
     }
+
+    @Override
+    public User serviceSelectUserById(int id) {
+            if(id < 0){
+                throw new UserNotFound("User not found");
+            }
+            User result = UD.selectUserById(id);
+            if (result == null){
+                throw new UserNotFound("User not found");
+            }
+            return result;
+    }
+
     public static void main(String[] args) {
         UserDAOImp UDI = new UserDAOImp();
         UserServiceImp USI = new UserServiceImp(UDI);

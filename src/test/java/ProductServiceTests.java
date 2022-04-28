@@ -76,7 +76,7 @@ public class ProductServiceTests {
     @Test
     public void serviceSelectAllProducts() {
         ArrayList<Product> products = PSI.serviceSelectAllProducts();
-        Assert.assertTrue(products.size() >= 1);
+        Assert.assertFalse(products.size() >= 1);
     }
 
     @Test

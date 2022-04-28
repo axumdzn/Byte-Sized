@@ -1,8 +1,8 @@
 package com.bytesize.service;
 import com.bytesize.customExceptions.BadInput;
+import com.bytesize.customExceptions.DataNotFound;
 import com.bytesize.customExceptions.IdNotFound;
 import com.bytesize.daos.ProductDAO;
-import com.bytesize.daos.ProductDAOImp;
 import com.bytesize.entities.Product;
 
 import java.util.ArrayList;
@@ -41,21 +41,21 @@ public class ProductServiceImp implements ProductService {
     @Override
     public Product serviceCreateProduct(Product product) {
 
-        if(product.getTitle().length() > 150){
+        if (product.getTitle().length() > 150) {
             throw new BadInput("Title should be less than 150 characters");
-        }
-        else if(product.getDescription().length() > 500){
+        } else if (product.getDescription().length() > 500) {
             throw new BadInput("Description should be less than 500 characters");
-        }
-        else if(product.getPrice() >= 1000){
+        } else if (product.getPrice() >= 1000) {
             throw new BadInput("Price should be less than 1000");
-        }
-        else if(product.getInventory() >= 1000){
+        } else if (product.getInventory() >= 1000) {
             throw new BadInput("Inventory should be less than 1000");
-        } else {
-            return PD.createProduct(product);
         }
+       Product result = PD.createProduct(product);
 
+        if(result == null){
+            throw new DataNotFound("Server error");
+        }
+        return result;
     }
 
     @Override
@@ -69,42 +69,29 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public ArrayList<Product> serviceSelectAllProducts() {
-        return PD.selectAllProducts();
+    public List<Product> serviceSelectAllProducts() {
+        List<Product> result = PD.selectAllProducts();
+        if (result.size() == 0) {
+            throw new DataNotFound("Server error");
+        }
+        return result;
     }
-
 
     @Override
     public int serviceRemoveProductById(int id) {
-        if (id == 0){
+        int result = PD.removeProductById(id);
+        if (result == 0){
             throw new IdNotFound("Please provide valid id");
         }
-        return 0;
-    }
-    @Override
-    public Product serviceDisplayProductByProductID(int productId)
-    {
-        Product product = PD.displayProductByProductID(productId);
-        if(product == null)
-        {
-            throw new com.bytesize.exceptions.IdNotFound("No products to show with this product ID");
-        }
-        else
-        {
-            return product;
-        }
+        return result;
     }
 
     @Override
-    public List<Product> serviceDisplayAllProductsBySellerId(int sellerId)
-    {
-        List<Product> product = PD.displayAllProductsBySellerId(sellerId);
-        if(product == null)
-        {throw new com.bytesize.exceptions.IdNotFound("No products to show with this seller ID");}
-        else
-        {return product;}
-        //{return (List<Product>) product}
+    public List<Product> serviceSelectAllProductByUserId(int id) {
+        List<Product> result = PD.selectAllProductByUserId(id);
+        if (result.size() == 0){
+            throw new IdNotFound("Please provide valid id");
+        }
+        return result;
     }
-
-
 }

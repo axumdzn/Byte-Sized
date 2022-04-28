@@ -29,7 +29,7 @@ public class JavalinController
             logger.info("Getting the productId from the path parameter");
             int productId = Integer.parseInt(ctx.pathParam("productId"));
             logger.info("Attempting to retrieve product based on the productId");
-            Product product = productService.serviceDisplayProductByProductID(productId);
+            Product product = productService.serviceSelectProductById(productId);
             Gson gson = new Gson();
             logger.info("converting Product object to JSON");
             String productJson = gson.toJson(product);
@@ -52,7 +52,7 @@ public class JavalinController
             logger.info("Getting the sellerId from the path parameter");
             int sellerId = Integer.parseInt(ctx.pathParam("sellerId"));
             logger.info("Attempting to retrieve products based on the sellerId");
-            List<Product> product = productService.serviceDisplayAllProductsBySellerId(sellerId);
+            List<Product> product = productService.serviceSelectAllProductByUserId(sellerId);
             for(Product p: product)
             {
                 if(p.getSellerId() == sellerId)
