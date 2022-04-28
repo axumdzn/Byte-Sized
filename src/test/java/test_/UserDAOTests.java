@@ -1,3 +1,5 @@
+package test_;
+
 import com.bytesize.daos.UserDAOImp;
 import com.bytesize.entities.User;
 import org.testng.annotations.Test;
@@ -10,14 +12,14 @@ public class UserDAOTests {
 
     @Test
     public void selectUserByLoginInfoPositive() {
-        User user = new User(2, "joejoe", "password", true, false);
         User result = UDI.selectUserByLoginInfo("joejoe", "password");
         Assert.assertEquals(result.getUserId(), 2);
     }
 
-//    @Test(expectedExceptions = UserNotFound.class, expectedExceptionsMessageRegExp = "User not found")
-//    public void loginTestNoUserNegative() {
-//        testUser = new User(0, "Imnotauser", "Imtrulynot", true, false);
-//        UDI.selectUserByLoginInfo(testUser.getUserName(), testUser.getPassWord());
-//    }
+    @Test
+    public void selectUserByIdSuccess() {
+        int id = 2;
+        User result = UDI.selectUserById(id);
+        Assert.assertEquals(result.getUserId(), 2);
+    }
 }

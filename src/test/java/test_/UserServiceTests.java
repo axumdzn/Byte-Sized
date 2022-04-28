@@ -1,3 +1,5 @@
+package test_;
+
 import com.bytesize.customExceptions.BadInput;
 import com.bytesize.customExceptions.UserNotFound;
 import com.bytesize.daos.UserDAOImp;
@@ -42,5 +44,25 @@ public class UserServiceTests {
     public void loginTestNoUser() {
         testUser = new User(0, "Imnotauser", "Imtrulynot", true, false);
         USI.login(testUser.getUserName(), testUser.getPassWord());
+    }
+
+    @Test
+    public void serviceSelectUserById(){
+        int id = 2;
+        testUser = new User(2, "Imnotauser", "Imtrulynot", true, false);
+        Mockito.doReturn(testUser).when(UDI).selectUserById(id);
+        User result = USI.serviceSelectUserById(2);
+        Assert.assertEquals(result.getUserName(), "Imnotauser");
+    }
+
+    @Test(expectedExceptions = UserNotFound.class, expectedExceptionsMessageRegExp = "User not found")
+    public void serviceSelectUserByIdNegative(){
+        int id = -2;
+        USI.serviceSelectUserById(id);
+    }
+    @Test(expectedExceptions = UserNotFound.class, expectedExceptionsMessageRegExp = "User not found")
+    public void serviceSelectUserByIdNoUserNegative(){
+        int id = 100;
+        USI.serviceSelectUserById(id);
     }
 }

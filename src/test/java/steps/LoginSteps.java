@@ -11,7 +11,7 @@ import runner.TestRunner;
 public class LoginSteps {
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
-        TestRunner.driver.get("C:\\Users\\Yeonghwan Choi\\Desktop\\P2_project\\Byte-Sized\\src\\test\\java\\web\\ByteSize.html");
+        TestRunner.driver.get("src/test/java/web/ByteSize.html");
 //        throw new io.cucumber.java.PendingException();
     }
     @When("I type in joejoe")

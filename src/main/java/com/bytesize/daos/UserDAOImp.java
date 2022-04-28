@@ -4,7 +4,6 @@ import com.bytesize.utils.DatabaseConnection;
 import java.sql.*;
 
 public class UserDAOImp implements UserDAO {
-
     @Override
     public User selectUserByLoginInfo(String userName, String passWord) {
         try(Connection connection = DatabaseConnection.createConnection()){

@@ -10,7 +10,7 @@ import java.util.List;
 public class TransactionServiceImp implements TransactionService{
 
     TransactionDAOImp  transactionDAOImp;
-    public TransactionServiceImp(){}
+
     public TransactionServiceImp(TransactionDAOImp transactionDAOImp){
 
         this.transactionDAOImp = transactionDAOImp;

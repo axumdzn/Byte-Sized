@@ -8,11 +8,10 @@ import runner.TestRunner;
 
 public class ByteSizedLinksSteps
 {
-
     @Given("I am on the seller's page")
     public void i_am_on_the_seller_s_page()
     {
-        TestRunner.driver.get("C:\\Users\\Tashawn\\Desktop\\Byte-Sized\\ByteSizedShopping\\SellerPage.html");
+        TestRunner.driver.get("src/test/java/web/SellerPage.html");
 
     }
     @When("I click the add to cart button")

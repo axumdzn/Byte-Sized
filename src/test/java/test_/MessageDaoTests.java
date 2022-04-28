@@ -1,3 +1,5 @@
+package test_;
+
 import com.bytesize.daos.MessageDAOImp;
 import com.bytesize.entities.Message;
 import org.testng.annotations.Test;
@@ -19,6 +21,6 @@ public class MessageDaoTests {
     public void getMessageById() {
         int id = 2;
         List<Message> result = MDI.getMessageById(id);
-        Assert.assertEquals(result.get(0).getMessageId(), 2);
+        Assert.assertEquals(result.get(0).getMessageId(), 3);
     }
 }

@@ -1,6 +1,7 @@
+package test_;
+
 import com.bytesize.entities.Product;
 import com.bytesize.daos.ProductDAOImp;
-import com.bytesize.exceptions.IdNotFound;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.List;
@@ -10,15 +11,11 @@ public class ProductDAOTests {
     ProductDAOImp productDAO = new ProductDAOImp();
 
     @Test
-    public void updateProduct(){
-        Product product = new Product(2,"golden candy","tastes bad",2,999 ,1);
+    public void updateProduct() {
+        Product product = new Product(2, "golden candy", "tastes bad", 2, 999, 1);
         int result = productDAO.updateProductById(product);
         Assert.assertEquals(result, 1);
     }
-
-
-
-
 
     @Test
     public void createProductSuccess() {
@@ -26,7 +23,6 @@ public class ProductDAOTests {
         Product newProduct = new Product(0, "food", "We see only fresh food", 5.49f, 5, 1);
         Product resultingProduct = productDAO.createProduct(newProduct);
         Assert.assertNotEquals(resultingProduct.getProductId(), 0);
-
     }
 
     @Test
@@ -54,34 +50,12 @@ public class ProductDAOTests {
         Assert.assertTrue(result == 0);
     }
 
-
-    // POSITIVE test for viewing a product
     @Test
-    public void displayProductByProductIDSuccess()
-    {
-        Product newProduct = productDAO.displayProductByProductID(9);
-        Assert.assertEquals(newProduct.getProductId(), 9);
-    }
-
-    // POSITIVE test for viewing all products
-    @Test
-    public void displayAllProductsBySellerIdSuccess()
-    {
-        List<Product> product = productDAO.displayAllProductsBySellerId(1);
-        Assert.assertTrue(product.size()>=1);
-    }
-
-    // NEGATIVE test for viewing a product
-    @Test(expectedExceptions = IdNotFound.class, expectedExceptionsMessageRegExp = "ID not found")
-    public void throwIdNotFoundProductSuccessfully(){
-        productDAO.displayProductByProductID(100);
-    }
-
-    // NEGATIVE test for viewing all products
-    @Test(expectedExceptions = IdNotFound.class, expectedExceptionsMessageRegExp = "ID not found")
-    public void throwIdNotFoundProductsSuccessfully(){
-        productDAO.displayProductByProductID(100);
+    public void selectAllProductByUser() {
+        List<Product> product = productDAO.selectAllProductByUserId(1);
+        Assert.assertTrue(product.size() >= 1);
     }
 }
+
 
 

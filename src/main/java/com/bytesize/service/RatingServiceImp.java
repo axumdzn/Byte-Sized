@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RatingServiceImp implements RatingService{
     RatingDAOImp ratingDAOImp;
-    public RatingServiceImp(){}
+
     public RatingServiceImp(RatingDAOImp ratingDAOImp){
         this.ratingDAOImp = ratingDAOImp;
     }

@@ -14,7 +14,7 @@ public class BuyItemsSteps {
     @Given("I am logged in")
     public void i_am_logged_in() {
         // Write code here that turns the phrase above into concrete actions
-        TestRunner.driver.get("C:\\Users\\kennf\\code\\revature\\Byte-Sized\\frontend\\html\\login.html");
+        TestRunner.driver.get("src/test/java/web/ByteSize.html");
         TestRunner.byteSizedHome.sendKeysToUsername("joejoe");
         TestRunner.byteSizedHome.sendKeysToPassword("password");
         TestRunner.byteSizedHome.clickLogin();

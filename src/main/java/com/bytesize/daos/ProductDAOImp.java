@@ -1,16 +1,16 @@
 package com.bytesize.daos;
+import com.bytesize.entities.Message;
 import com.bytesize.entities.Product;
 import com.bytesize.exceptions.IdNotFound;
 import com.bytesize.utils.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-public class ProductDAOImp implements ProductDAO
-{
+public class ProductDAOImp implements ProductDAO {
 
     @Override
     public Product createProduct(Product Product) {
-        try(Connection connection = DatabaseConnection.createConnection()){
+        try (Connection connection = DatabaseConnection.createConnection()) {
             String sql = "insert into products values(default, ?, ?, ?, ?, ?)";
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, Product.getTitle());
@@ -25,17 +25,16 @@ public class ProductDAOImp implements ProductDAO
             Product.setProductId(rs.getInt("productId"));
             return Product;
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-
     @Override
     public Product selectProductById(int id) {
 
-        try(Connection connection = DatabaseConnection.createConnection()) {
+        try (Connection connection = DatabaseConnection.createConnection()) {
             String sql = "select * from products where productId = ?";
 
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -52,8 +51,8 @@ public class ProductDAOImp implements ProductDAO
                     rs.getInt("sellerId")
             );
 
-        return product;
-        } catch (SQLException e){
+            return product;
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -61,13 +60,13 @@ public class ProductDAOImp implements ProductDAO
 
     @Override
     public ArrayList<Product> selectAllProducts() {
-        try(Connection connection = DatabaseConnection.createConnection()){
+        try (Connection connection = DatabaseConnection.createConnection()) {
             String sql = "select * from products";
             Statement s = connection.createStatement();
             s.execute(sql);
             ResultSet rs = s.getResultSet();
             ArrayList<Product> products = new ArrayList<>();
-            while(rs.next()){
+            while (rs.next()) {
                 Product product = new Product(
                         rs.getInt("productId"),
                         rs.getString("title"),
@@ -75,12 +74,12 @@ public class ProductDAOImp implements ProductDAO
                         rs.getFloat("price"),
                         rs.getInt("inventory"),
                         rs.getInt("sellerId")
-                        );
+                );
                 products.add(product);
             }
             return products;
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
@@ -88,12 +87,12 @@ public class ProductDAOImp implements ProductDAO
 
     @Override
     public int removeProductById(int id) {
-        try(Connection connection = DatabaseConnection.createConnection()){
+        try (Connection connection = DatabaseConnection.createConnection()) {
             String sql = "delete from products where productId = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             return ps.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return 0;
         }
@@ -116,45 +115,14 @@ public class ProductDAOImp implements ProductDAO
     }
 
     @Override
-    public Product displayProductByProductID(int productId)
-    {
-        try(Connection connection = DatabaseConnection.createConnection())
-        {
-            String sql = "select * from products where productId = ?";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, productId);
-            ResultSet rs = ps.executeQuery();
-            //rs.next();
-            if(!rs.next())
-            {
-                throw new IdNotFound("ID not found");
-            }
+    public List<Product> selectAllProductByUserId(int id) {
 
-            Product item = new Product(
-                    rs.getInt("productId"),
-                    rs.getString("title"),
-                    rs.getString("description"),
-                    rs.getFloat("price"),
-                    rs.getInt("inventory"),
-                    rs.getInt("sellerId")
-            );
-            return item;
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    @Override
-    public List<Product> displayAllProductsBySellerId(int sellerId) {
         try (Connection connection = DatabaseConnection.createConnection()) {
             String sql = "select * from products where sellerId = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, sellerId);
+            ps.setInt(1, id);
+
             ResultSet rs = ps.executeQuery();
-            //rs.next();
             List<Product> products = new ArrayList<>();
             while (rs.next()) {
                 Product product = new Product(
@@ -168,10 +136,10 @@ public class ProductDAOImp implements ProductDAO
                 products.add(product);
             }
             return products;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
-
     }
 }
