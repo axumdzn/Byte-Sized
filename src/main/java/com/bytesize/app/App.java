@@ -57,14 +57,9 @@ public class App
 
         app.post("/messageSend", messageController.messageSend);
 
-
         app.get("/getmessagesbyid/{id}", messageController.getmessagebyid);
 
-
         app.post("/productUpdate", productController.updateProduct);
-
-
-
 
 
 

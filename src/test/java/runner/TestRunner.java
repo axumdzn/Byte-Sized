@@ -16,11 +16,10 @@ import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/ByteSizedLinks.feature"},
+        features = {"src/test/resources/features/"},
         glue = {"steps"},
         plugin = {"pretty","html:src/test/resources/reports/html-e2e-report.html"} //copy path reference of resources folder from content root
 )
-
 public class TestRunner
 {
 
@@ -30,7 +29,7 @@ public class TestRunner
     public static ByteSizedMessage byteSizedMessage;
     @BeforeClass
     public static void setup()
-    {//below sets your driver as a chrome driver
+    {
         File file = new File("src/test/resources/chromedriver.exe"); //content root
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
@@ -41,13 +40,9 @@ public class TestRunner
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));//keep seconds short
         wait = new WebDriverWait(driver,Duration.ofSeconds(10));
     }
-
     @AfterClass
     public static  void teardown()
     {
         driver.quit();
     }
-
-
-
 }

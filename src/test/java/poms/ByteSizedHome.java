@@ -12,7 +12,7 @@ public class ByteSizedHome
 
     private By usernameField = By.id("username-field");
     private By passwordField = By.id("password-field");
-    private By loginButton = By.id("login");
+    private By loginButton = By.xpath("/html/body/div/div[2]/form/button");
 
     public ByteSizedHome(WebDriver driver)
     {
@@ -33,10 +33,6 @@ public class ByteSizedHome
 
     @FindBy
     public WebElement viewStats;
-
-
-
-
 
     @FindBy(id = "username-field")
     public WebElement userNameSelector;

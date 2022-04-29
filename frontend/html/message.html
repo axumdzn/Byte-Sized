@@ -26,18 +26,17 @@
     <section id="main-holder" class="container">
         <h2 id="welcome-header">Messages!</h2>
     </section>
-</body>
 
-<section>
+
+<section class="container">
     <br> Title: <input id="title" type="text">
     <br> ToUserId: <input id="userid" type="number">
     <br>
-    <textarea id="textarea" rows="4" cols="50" name="comment" form="usrform">
+    <textarea id="textarea" rows="4" cols="50" name="comment" >
     Enter text here...</textarea>
+    <br>
     <button id="submitButton" onclick="requestSendingMessage();">Submit</button>
 </section>
-
-
 
 
 
@@ -59,6 +58,7 @@
         </tr>
     </tbody>
 </table>
+</body>
 <script src="../js/MessagePageJavaScript.js" async></script>
 
 </html>

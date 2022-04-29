@@ -41,8 +41,8 @@
         async function loginFunction() {
 
             let loginInfoJSON = {
-                "userName": id_name.value,
-                "passWord": password.value
+                "userName": "joejoe",
+                "passWord": "password"
             }
             let loginCredentials = {
                 method: "POST",
@@ -61,9 +61,9 @@
                 alert('Welcome ' + httpResponseBody["userName"]) 
                 window.location.href = "home.html"
                 }
-                else {
-                    alert("Wrong Login Info Please, Try Again")
-                }
+                // else {
+                //     alert("Wrong Login Info Please, Try Again")
+                // }
 
             }
     </script>
