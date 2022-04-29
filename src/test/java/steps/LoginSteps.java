@@ -11,7 +11,7 @@ import runner.TestRunner;
 public class LoginSteps {
     @Given("I am on the login page")
     public void i_am_on_the_login_page() {
-        TestRunner.driver.get("src/test/java/web/ByteSize.html");
+        TestRunner.driver.get("C:\\Users\\Yeonghwan Choi\\Desktop\\P2_project\\Byte-Sized\\frontend\\html\\login.html");
 //        throw new io.cucumber.java.PendingException();
     }
     @When("I type in joejoe")
@@ -30,7 +30,7 @@ public class LoginSteps {
         TestRunner.byteSizedHome.clickLogin();
         TestRunner.wait.until(ExpectedConditions.alertIsPresent());
         TestRunner.driver.switchTo().alert().accept();
-        TestRunner.wait.until(ExpectedConditions.titleIs("Byte-Sized Shopping"));
+//        TestRunner.wait.until(ExpectedConditions.titleIs("Byte-Sized Shopping"));
         //        throw new io.cucumber.java.PendingException();
     }
     @Then("I should be redirected to BYTE-SIZED shopping homepage")

@@ -19,25 +19,6 @@ public class ProductController {
     public ProductController(ProductService productServiceInterface) {
         this.productServiceInterface = productServiceInterface;
     }
-//
-//    public Handler updateProduct = ctx -> {
-//        try{
-//            Gson gson = new Gson();
-//            String body = ctx.body();
-//            Product product = gson.fromJson(body, Product.class);
-//            int result = productServiceInterface.updateProduct(product);
-//            resultJson = gson.toJson(result);
-//            ctx.result(resultJson);
-//            ctx.status(201);
-//        }catch(BadInput e) {
-//            ctx.result(e.getMessage());
-//            ctx.status(405);
-//        }catch(IdNotFound e){
-//            ctx.result(e.getMessage());
-//            ctx.status(405);
-//        }
-//    };
-
 
 
     public Handler addProduct = ctx -> {

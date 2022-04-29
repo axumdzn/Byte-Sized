@@ -49,7 +49,7 @@ public class UserController {
             Gson gson = new Gson();
             String newBody = gson.toJson(result);
             ctx.result(newBody);
-            ctx.status(200);
+            ctx.status(201);
         }catch(UserNotFound e){
             ctx.result(e.getMessage());
             ctx.status(405);
